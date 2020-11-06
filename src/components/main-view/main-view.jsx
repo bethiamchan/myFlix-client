@@ -24,7 +24,7 @@ export class MainView extends React.Component {
 					movies: response.data,
 				});
 			})
-			.catch(function (errror) {
+			.catch(function (error) {
 				console.log(error);
 			});
 	}

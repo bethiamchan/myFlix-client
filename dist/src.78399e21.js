@@ -31672,10 +31672,7 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
   _createClass(MovieView, [{
     key: "render",
     value: function render() {
-      var _this$props = this.props,
-          movie = _this$props.movie,
-          onClick = _this$props.onClick,
-          button = _this$props.button;
+      var movie = this.props.movie;
       if (!movie) return null;
       return _react.default.createElement("div", {
         className: "movie-view"
@@ -31707,12 +31704,12 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
       }, "Director: "), _react.default.createElement("span", {
         className: "value"
       }, movie.Director.Name)), _react.default.createElement("div", {
-        className: "back-button"
+        className: "back-to-main-view"
       }, _react.default.createElement("button", {
         onClick: function onClick() {
           return window.open('mainView', '_self');
         },
-        className: "button"
+        className: "back-button"
       }, "Back")));
     }
   }]);
@@ -31790,7 +31787,7 @@ var MainView = /*#__PURE__*/function (_React$Component) {
         _this2.setState({
           movies: response.data
         });
-      }).catch(function (errror) {
+      }).catch(function (error) {
         console.log(error);
       });
     }
@@ -31993,7 +31990,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50371" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56200" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
