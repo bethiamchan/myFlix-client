@@ -1,0 +1,15 @@
+$blue: #3765c2;
+$gold: #7e6e1c;
+$bodyFont: 'Montserrat', sans-serif;
+
+.movie-card {
+	font-family: $bodyFont;
+}
+
+.movie-title {
+	color: $gold;
+}
+
+.movie-text {
+	color: $blue;
+}

@@ -1,5 +1,32 @@
+.login-form {
+  font-family: "Montserrat", sans-serif;
+  color: #3765c2;
+}
+
+.login-button {
+  background-color: #3765c2;
+}
+.movie-card {
+  font-family: "Montserrat", sans-serif;
+}
+
+.movie-title {
+  color: #7e6e1c;
+}
+
+.movie-text {
+  color: #3765c2;
+}
+.registration-form {
+  font-family: "Montserrat", sans-serif;
+  color: #3765c2;
+}
+
+.login-button {
+  background-color: #3765c2;
+}
 .my-flix {
-  color: steelblue;
+  color: #3765c2;
 }
 
 .back-button {

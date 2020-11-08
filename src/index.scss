@@ -1,9 +1,11 @@
-$color: steelblue;
+$blue: #3765c2;
+$gold: #7e6e1c;
+$bodyFont: 'Montserrat', sans-serif;
 
 .my-flix {
-    color: $color;
+	color: $blue;
 }
 
 .back-button {
-    cursor: pointer;
+	cursor: pointer;
 }
