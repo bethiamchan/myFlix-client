@@ -50,6 +50,12 @@ export class MainView extends React.Component {
 		});
 	}
 
+	// onBack() {
+	// 	this.setState({
+	// 		selectedMovie: null,
+	// 	});
+	// }
+
 	render() {
 		const { movies, selectedMovie, user } = this.state;
 

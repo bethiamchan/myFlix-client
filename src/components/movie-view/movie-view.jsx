@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 
 export class MovieView extends React.Component {
 	constructor() {
@@ -9,6 +10,12 @@ export class MovieView extends React.Component {
 
 		this.state = {};
 	}
+
+	// onBack() {
+	// 	this.setState({
+	// 		selectedMovie: null,
+	// 	});
+	// }
 
 	render() {
 		const { movie } = this.props;
@@ -44,6 +51,7 @@ export class MovieView extends React.Component {
 					<button onClick={() => window.open('mainView', '_self')} className="back-button">
 						Back
 					</button>
+					{/* <Button onClick={() => onBack()}>Back</Button> */}
 				</div>
 			</div>
 		);

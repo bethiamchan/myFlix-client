@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
+import Container from 'react-bootstrap/Container';
 
 import './movie-card.scss';
 
@@ -12,16 +13,18 @@ export class MovieCard extends React.Component {
 
 		return (
 			<CardDeck className="movie-card-deck">
-				<Card className="movie-card" style={{ width: '16rem', flex: 1 }} className="movie-card mb-3">
-					<Card.Img variant="top" src={movie.ImagePath} />
-					<Card.Body>
-						<Card.Title className="movie-title">{movie.Title}</Card.Title>
-						<Card.Text className="movie-text">{movie.Description}</Card.Text>
-						<Button className="movie-card-button" onClick={() => onClick(movie)} variant="button">
-							Open
-						</Button>
-					</Card.Body>
-				</Card>
+				<Container>
+					<Card className="movie-card" style={{ width: '16rem', flex: 1 }} className="movie-card mb-3">
+						<Card.Img variant="top" src={movie.ImagePath} />
+						<Card.Body>
+							<Card.Title className="movie-title">{movie.Title}</Card.Title>
+							<Card.Text className="movie-text">{movie.Description}</Card.Text>
+							<Button className="movie-card-button" onClick={() => onClick(movie)} variant="button">
+								Open
+							</Button>
+						</Card.Body>
+					</Card>
+				</Container>
 			</CardDeck>
 		);
 	}
