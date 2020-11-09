@@ -8,14 +8,16 @@
 }
 .movie-card {
   font-family: "Montserrat", sans-serif;
-}
-
-.movie-title {
-  color: #7e6e1c;
+  text-align: center;
 }
 
 .movie-text {
   color: #3765c2;
+}
+
+.movie-card-button {
+  background-color: #3765c2;
+  color: white;
 }
 .registration-form {
   font-family: "Montserrat", sans-serif;
