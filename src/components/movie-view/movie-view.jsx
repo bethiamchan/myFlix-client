@@ -21,7 +21,7 @@ export class MovieView extends React.Component {
 	// }
 
 	render() {
-		const { movie } = this.props;
+		const { movie, onBack } = this.props;
 
 		if (!movie) return null;
 
@@ -55,6 +55,7 @@ export class MovieView extends React.Component {
 						<Button onClick={() => window.open('mainView', '_self')} className="back-button">
 							Back
 						</Button>
+						<button onClick={onBack} className="back-button">Back to Movies</button>
 					</Row>
 				</Container>
 				{/* <div className="back-to-main-view">

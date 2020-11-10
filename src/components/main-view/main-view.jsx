@@ -21,6 +21,8 @@ export class MainView extends React.Component {
 			selectedMovie: null,
 			user: null,
 		};
+		this.onBack = this.onBack.bind(this);
+
 	}
 
 	componentDidMount() {
@@ -50,11 +52,17 @@ export class MainView extends React.Component {
 		});
 	}
 
-	// onBack() {
+	onBack() {
+		this.setState({
+			selectedMovie: null,
+		});
+	}
+
+	// onBack = () => {
 	// 	this.setState({
 	// 		selectedMovie: null,
 	// 	});
-	// }
+	// };
 
 	render() {
 		const { movies, selectedMovie, user } = this.state;
@@ -71,7 +79,8 @@ export class MainView extends React.Component {
 					<Row>
 						{/* If state of selectedMovie is not null, selected move will be returned. Otherwise, all movies are returned. */}
 						{selectedMovie ? (
-							<MovieView movie={selectedMovie} />
+							// <MovieView movie={selectedMovie} onBack={this.onBack}/>
+							<MovieView movie={selectedMovie} onBack={this.onBack}/>
 						) : (
 							movies.map((movie) => (
 								<Col>
