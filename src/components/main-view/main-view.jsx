@@ -20,9 +20,9 @@ export class MainView extends React.Component {
 			movies: null,
 			selectedMovie: null,
 			user: null,
+			// newUser: null,
 		};
 		this.onBack = this.onBack.bind(this);
-
 	}
 
 	componentDidMount() {
@@ -58,17 +58,19 @@ export class MainView extends React.Component {
 		});
 	}
 
-	// onBack = () => {
+	// onNewUser() {
 	// 	this.setState({
-	// 		selectedMovie: null,
+	// 		newUser: true,
 	// 	});
-	// };
+	// }
 
 	render() {
 		const { movies, selectedMovie, user } = this.state;
 
 		// If user is not logged in, the LoginView is rendered. If a user is logged in, user details are passed as a prop to LoginView
 		if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
+
+		// if (newUser) return <RegistrationView onNewUser={this.onNewUser} />
 
 		//Before movies have been loaded
 		if (!movies) return <div className="main-view" />;
@@ -79,8 +81,7 @@ export class MainView extends React.Component {
 					<Row>
 						{/* If state of selectedMovie is not null, selected move will be returned. Otherwise, all movies are returned. */}
 						{selectedMovie ? (
-							// <MovieView movie={selectedMovie} onBack={this.onBack}/>
-							<MovieView movie={selectedMovie} onBack={this.onBack}/>
+							<MovieView movie={selectedMovie} onBack={this.onBack} />
 						) : (
 							movies.map((movie) => (
 								<Col>

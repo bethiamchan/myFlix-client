@@ -12,12 +12,15 @@ import Container from 'react-bootstrap/Container';
 export function LoginView(props) {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
+	// const [onNewUser] = useState('');
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		console.log(username, password);
 		props.onLoggedIn(username);
 	};
+
+	// const { onNewUser } = this.props;
 
 	return (
 		<Form className="login-form">
@@ -35,10 +38,11 @@ export function LoginView(props) {
 			<Button className="login-button" type="submit" onClick={handleSubmit}>
 				Submit
 			</Button>
+
+			{/* <Button onClick={onNewUser}>Or Register As a New User Here</Button> */}
 		</Form>
 
-		// 		<Button onClick={() => window.open('RegistrationView', '_self')}>Or Register As a New User Here</Button>
-		// 	</Col>
+		// </Col>
 	);
 }
 LoginView.propTypes = {

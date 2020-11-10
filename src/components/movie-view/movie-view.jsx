@@ -14,12 +14,6 @@ export class MovieView extends React.Component {
 		this.state = {};
 	}
 
-	// onBack() {
-	// 	this.setState({
-	// 		selectedMovie: null,
-	// 	});
-	// }
-
 	render() {
 		const { movie, onBack } = this.props;
 
@@ -52,18 +46,11 @@ export class MovieView extends React.Component {
 						</Col>
 					</Row>
 					<Row className="back-to-main-view">
-						<Button onClick={() => window.open('mainView', '_self')} className="back-button">
-							Back
+						<Button onClick={onBack} className="back-button">
+							Back to Movies
 						</Button>
-						<button onClick={onBack} className="back-button">Back to Movies</button>
 					</Row>
 				</Container>
-				{/* <div className="back-to-main-view">
-					<Button onClick={() => window.open('mainView', '_self')} className="back-button">
-						Back
-					</Button> */}
-				{/* <Button onClick={() => onBack()}>Back</Button> */}
-				{/* </div> */}
 			</div>
 		);
 	}
