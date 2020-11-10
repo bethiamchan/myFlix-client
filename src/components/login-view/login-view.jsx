@@ -5,6 +5,7 @@ import './login-view.scss';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 
 // import { RegistrationView } from '../registration-view/registration-view';
 
@@ -20,31 +21,24 @@ export function LoginView(props) {
 
 	return (
 		<Form className="login-form">
-			<Form.Row>
-				<Col xs={1}>
-					<Form.Label>Username</Form.Label>
-				</Col>
-				<Col xs={4}>
-					<Form.Control type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter Username" />
-				</Col>
-				<Col xs={1}>
-					<Form.Label>Password</Form.Label>
-				</Col>
-				<Col xs={4}>
-					<Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter Password" />
-				</Col>
-				<Col xs={2}>
-					<Button className="login-button" type="submit" onClick={handleSubmit}>
-						Submit
-					</Button>
-				</Col>
-			</Form.Row>
-			{/* <Form.Row>
-				<Col>
-					<Button onClick={() => window.open('RegistrationView', '_self')}>Or Register As a New User Here</Button>
-				</Col>
-			</Form.Row> */}
+			<Form.Label>
+				<h2>Login to myFlix</h2>
+			</Form.Label>
+			<Form.Group controlId="formUsername">
+				<Form.Label className="form-label">Username</Form.Label>
+				<Form.Control type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter Username" />
+			</Form.Group>
+			<Form.Group controlId="formPassword">
+				<Form.Label className="form-label">Password</Form.Label>
+				<Form.Control type="text" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter Password" />
+			</Form.Group>
+			<Button className="login-button" type="submit" onClick={handleSubmit}>
+				Submit
+			</Button>
 		</Form>
+
+		// 		<Button onClick={() => window.open('RegistrationView', '_self')}>Or Register As a New User Here</Button>
+		// 	</Col>
 	);
 }
 LoginView.propTypes = {

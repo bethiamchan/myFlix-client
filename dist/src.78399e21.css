@@ -3,8 +3,18 @@
   color: #3765c2;
 }
 
+h2 {
+  font-weight: 800;
+  color: #7e6e1c;
+}
+
 .login-button {
   background-color: #3765c2;
+  border: none;
+}
+
+.login-button:hover {
+  background-color: #7e6e1c;
 }
 .movie-card {
   font-family: "Montserrat", sans-serif;
@@ -13,11 +23,57 @@
 
 .movie-text {
   color: #3765c2;
+  font-weight: 500;
+}
+
+.movie-card-title {
+  color: #7e6e1c;
+  font-weight: 700;
 }
 
 .movie-card-button {
   background-color: #3765c2;
   color: white;
+}
+
+.movie-card-button:hover {
+  background-color: #7e6e1c;
+  color: white;
+}
+.movie-poster {
+  width: 100%;
+}
+
+.movie-view {
+  font-family: "Montserrat", sans-serif;
+}
+
+.movie-title {
+  font-weight: 700;
+  color: #7e6e1c;
+  font-size: 20px;
+}
+
+.card-content {
+  color: #3765c2;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.label {
+  font-weight: 700;
+}
+
+.back-button {
+  background-color: #7e6e1c;
+  border: none;
+  margin: 10px;
+  display: block;
+  margin-left: auto;
+}
+
+.back-button:hover {
+  background-color: #3765c2;
 }
 .registration-form {
   font-family: "Montserrat", sans-serif;

@@ -1,5 +1,39 @@
+$blue: #3765c2;
+$gold: #7e6e1c;
 $bodyFont: 'Montserrat', sans-serif;
+
+.movie-poster {
+	width: 100%;
+}
 
 .movie-view {
 	font-family: $bodyFont;
+}
+
+.movie-title {
+	font-weight: 700;
+	color: $gold;
+	font-size: 20px;
+}
+
+.card-content {
+	color: $blue;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.label {
+	font-weight: 700;
+}
+
+.back-button {
+	background-color: $gold;
+	border: none;
+	margin: 10px;
+	display: block;
+	margin-left: auto;
+}
+
+.back-button:hover {
+	background-color: $blue;
 }

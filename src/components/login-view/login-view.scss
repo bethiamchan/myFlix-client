@@ -1,4 +1,5 @@
 $blue: #3765c2;
+$gold: #7e6e1c;
 $bodyFont: 'Montserrat', sans-serif;
 
 .login-form {
@@ -6,6 +7,16 @@ $bodyFont: 'Montserrat', sans-serif;
 	color: $blue;
 }
 
+h2 {
+	font-weight: 800;
+	color: $gold;
+}
+
 .login-button {
 	background-color: $blue;
+	border: none;
+}
+
+.login-button:hover {
+	background-color: $gold;
 }
