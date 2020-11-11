@@ -20,7 +20,7 @@ export function LoginView(props) {
 		props.onLoggedIn(username);
 	};
 
-	// const { onNewUser } = this.props;
+	const { onNewUser } = props;
 
 	return (
 		<Form className="login-form">
@@ -39,7 +39,7 @@ export function LoginView(props) {
 				Submit
 			</Button>
 
-			{/* <Button onClick={onNewUser}>Or Register As a New User Here</Button> */}
+			 <Button onClick={onNewUser}>Or Register As a New User Here</Button>
 		</Form>
 
 		// </Col>
