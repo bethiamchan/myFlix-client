@@ -7,12 +7,9 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 
-// import { RegistrationView } from '../registration-view/registration-view';
-
 export function LoginView(props) {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
-	// const [onNewUser] = useState('');
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
@@ -24,25 +21,36 @@ export function LoginView(props) {
 
 	return (
 		<Form className="login-form">
-			<Form.Label>
-				<h2>Login to myFlix</h2>
-			</Form.Label>
-			<Form.Group controlId="formUsername">
-				<Form.Label className="form-label">Username</Form.Label>
-				<Form.Control type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter Username" />
-			</Form.Group>
-			<Form.Group controlId="formPassword">
-				<Form.Label className="form-label">Password</Form.Label>
-				<Form.Control type="text" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter Password" />
-			</Form.Group>
-			<Button className="login-button" type="submit" onClick={handleSubmit}>
-				Submit
-			</Button>
-
-			 <Button onClick={onNewUser}>Or Register As a New User Here</Button>
+			<Container>
+				<Col className="text-center">
+					<Form.Label>
+						<h1 className="form-title">Login to myFlix</h1>
+					</Form.Label>
+				</Col>
+			</Container>
+			<Container>
+				<Form.Group controlId="formUsername">
+					<Form.Label className="form-label">Username</Form.Label>
+					<Form.Control className="form-input" type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter Username" />
+				</Form.Group>
+				<Form.Group controlId="formPassword">
+					<Form.Label className="form-label">Password</Form.Label>
+					<Form.Control className="form-input" type="text" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter Password" />
+				</Form.Group>
+				<Form.Row>
+					<Col xs={6}>
+						<Button className="login-view-button" block type="submit" onClick={handleSubmit}>
+							Log In
+						</Button>
+					</Col>
+					<Col xs={6}>
+						<Button className="login-view-button" block onClick={onNewUser}>
+							Register As New User
+						</Button>
+					</Col>
+				</Form.Row>
+			</Container>
 		</Form>
-
-		// </Col>
 	);
 }
 LoginView.propTypes = {

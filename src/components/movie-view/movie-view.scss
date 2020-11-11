@@ -26,14 +26,14 @@ $bodyFont: 'Montserrat', sans-serif;
 	font-weight: 700;
 }
 
-.back-button {
+.back-to-main-button {
 	background-color: $gold;
 	border: none;
-	margin: 10px;
 	display: block;
 	margin-left: auto;
+	transition: 0.4s;
 }
 
-.back-button:hover {
+.back-to-main-button:hover {
 	background-color: $blue;
 }

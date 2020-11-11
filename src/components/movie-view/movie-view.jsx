@@ -46,7 +46,7 @@ export class MovieView extends React.Component {
 						</Col>
 					</Row>
 					<Row className="back-to-main-view">
-						<Button onClick={onBack} className="back-button">
+						<Button onClick={onBack} className="back-to-main-button">
 							Back to Movies
 						</Button>
 					</Row>

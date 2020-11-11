@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import './registration-view.scss';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Button';
-
-import './registration-view.scss';
+import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 
 export function RegistrationView(props) {
 	const [username, setUsername] = useState('');
@@ -20,45 +20,40 @@ export function RegistrationView(props) {
 	};
 
 	return (
-		<div className="registration-view">
-			<h2>Create Your myFlix Account</h2>
-
-			<Form className="registration-form">
+		<Form className="registration-form">
+			<Container>
+				<Col className="text-center">
+					<Form.Label>
+						<h1 className="form-title">Create Your myFlix Account</h1>
+					</Form.Label>
+				</Col>
+			</Container>
+			<Container>
+				<Form.Group controlId="formUsername">
+					<Form.Label className="form-label">Username</Form.Label>
+					<Form.Control className="form-input" type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter Username" />
+				</Form.Group>
+				<Form.Group controlId="formPassword">
+					<Form.Label className="form-label">Password</Form.Label>
+					<Form.Control className="form-input" type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter Password" />
+				</Form.Group>
+				<Form.Group controlId="formEmail">
+					<Form.Label className="form-label">Email</Form.Label>
+					<Form.Control className="form-input" type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter Email Address" />
+				</Form.Group>
+				<Form.Group controlId="formBirthDate">
+					<Form.Label className="form-label">Birthday</Form.Label>
+					<Form.Control className="form-input" type="text" value={birthDate} onChange={(e) => setBirthDate(e.target.value)} placeholder="Enter Birthday" />
+				</Form.Group>
 				<Form.Row>
-					<Col xs={1}>
-						<Form.Label>Username</Form.Label>
-					</Col>
-					<Col xs={4}>
-						<Form.Control type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter Username" />
-					</Col>
-					<Col xs={1}>
-						<Form.Label>Password</Form.Label>
-					</Col>
-					<Col xs={4}>
-						<Form.Control type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter Password" />
-					</Col>
-				</Form.Row>
-				<Form.Row>
-					<Col xs={1}>
-						<Form.Label>Email</Form.Label>
-					</Col>
-					<Col xs={4}>
-						<Form.Control type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter Email Address" />
-					</Col>
-					<Col xs={1}>
-						<Form.Label>Birthday</Form.Label>
-					</Col>
-					<Col xs={4}>
-						<Form.Control type="text" value={birthDate} onChange={(e) => setBirthDate(e.target.value)} placeholder="Enter Birthday" />
-					</Col>
-					<Col xs={2}>
-						<Button className="login-button" type="submit" onClick={handleRegister}>
+					<Col>
+						<Button className="registration-button" block type="submit" onClick={handleRegister}>
 							Register
 						</Button>
 					</Col>
 				</Form.Row>
-			</Form>
-		</div>
+			</Container>
+		</Form>
 	);
 }
 RegistrationView.propTypes = {

@@ -5,18 +5,24 @@ $bodyFont: 'Montserrat', sans-serif;
 .login-form {
 	font-family: $bodyFont;
 	color: $blue;
+	margin: 20px;
 }
 
-h2 {
+h1 {
 	font-weight: 800;
 	color: $gold;
 }
 
-.login-button {
-	background-color: $blue;
-	border: none;
+.form-label {
+	font-weight: 500;
 }
 
-.login-button:hover {
+.login-view-button {
+	background-color: $blue;
+	border: none;
+	transition: 0.4s;
+}
+
+.login-view-button:hover {
 	background-color: $gold;
 }

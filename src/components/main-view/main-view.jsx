@@ -49,7 +49,7 @@ export class MainView extends React.Component {
 
 	//When user logs in, this updates the user property in state to that user
 	onLoggedIn(user) {
-		console.log("Login main view");
+		console.log('Login main view');
 		this.setState({
 			user,
 		});
@@ -62,7 +62,7 @@ export class MainView extends React.Component {
 	}
 
 	onNewUser() {
-		console.log("setnewuser");
+		console.log('setnewuser');
 		this.setState({
 			newUser: true,
 		});
@@ -74,7 +74,7 @@ export class MainView extends React.Component {
 		// If user is not logged in, the LoginView is rendered. If a user is logged in, user details are passed as a prop to LoginView
 		if (!user && !newUser) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} onNewUser={this.onNewUser} />;
 
-		if (!user && newUser) return <RegistrationView onLoggedIn={(user) => this.onLoggedIn(user)} />
+		if (!user && newUser) return <RegistrationView onLoggedIn={(user) => this.onLoggedIn(user)} />;
 
 		//Before movies have been loaded
 		if (!movies) return <div className="main-view" />;

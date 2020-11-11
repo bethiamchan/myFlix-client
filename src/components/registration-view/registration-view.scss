@@ -1,11 +1,28 @@
 $blue: #3765c2;
+$gold: #7e6e1c;
 $bodyFont: 'Montserrat', sans-serif;
 
 .registration-form {
 	font-family: $bodyFont;
 	color: $blue;
+	margin: 20px;
 }
 
-.login-button {
+h1 {
+	font-weight: 800;
+	color: $gold;
+}
+
+.form-label {
+	font-weight: 500;
+}
+
+.registration-button {
 	background-color: $blue;
+	border: none;
+	transition: 0.4s;
+}
+
+.registration-button:hover {
+	background-color: $gold;
 }
