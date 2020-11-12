@@ -28,8 +28,21 @@ export class MainView extends React.Component {
 	}
 
 	componentDidMount() {
+		let accessToken = localStorage.getItem('token');
+		if (accessToken !== null) {
+			this.setState({
+				user: localStorage.getItem('user'),
+			});
+			this.getMovies(accessToken);
+		}
+	}
+
+	//Get all movies
+	getMovies(token) {
 		axios
-			.get('https://bchanmyflix.herokuapp.com/movies')
+			.get('https://bchanmyflix.herokuapp.com/movies', {
+				headers: { Authorization: `Bearer ${token}` },
+			})
 			.then((response) => {
 				this.setState({
 					movies: response.data,
@@ -48,19 +61,25 @@ export class MainView extends React.Component {
 	}
 
 	//When user logs in, this updates the user property in state to that user
-	onLoggedIn(user) {
-		console.log('Login main view');
+	onLoggedIn(authData) {
+		console.log(authData);
 		this.setState({
-			user,
+			user: authData.user.Username,
 		});
+
+		localStorage.setItem('token', authData.token);
+		localStorage.setItem('user', authData.user.Username);
+		this.getMovies(authData.token);
 	}
 
+	//Allows back button to show all movie cards in main view
 	onBack() {
 		this.setState({
 			selectedMovie: null,
 		});
 	}
 
+	//Allows registration button to take to registration view
 	onNewUser() {
 		console.log('setnewuser');
 		this.setState({

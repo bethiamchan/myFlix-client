@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 import './login-view.scss';
 import Form from 'react-bootstrap/Form';
@@ -13,8 +14,20 @@ export function LoginView(props) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(username, password);
-		props.onLoggedIn(username);
+
+		// Send request to server for authentication
+		axios.post('https://bchanmyflix.herokuapp.com/login', {
+			Username: username,
+			Password: password,
+		})
+		.then(response => {
+			const data = response.data;
+			props.onLoggedIn(data);
+		})
+		.catch(e => {
+			console.log('User does not exist');
+			// alert('User does not exist')
+		});
 	};
 
 	const { onNewUser } = props;
