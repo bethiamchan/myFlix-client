@@ -14,7 +14,7 @@ export class MovieCard extends React.Component {
 		return (
 			<CardDeck className="movie-card-deck">
 				<Container>
-					<Card className="movie-card" style={{ width: '16rem', flex: 1 }} className="movie-card mb-3">
+					<Card className="movie-card" style={{ width: '16rem', flex: 1 }} className="movie-card mb-3" alt="Movie Poster Image">
 						<Card.Img variant="top" src={movie.ImagePath} />
 						<Card.Body className="movie-card-body">
 							<Card.Title className="movie-card-title">{movie.Title}</Card.Title>

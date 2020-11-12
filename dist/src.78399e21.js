@@ -34603,18 +34603,20 @@ var MovieCard = /*#__PURE__*/function (_React$Component) {
   _createClass(MovieCard, [{
     key: "render",
     value: function render() {
+      var _React$createElement;
+
       var _this$props = this.props,
           movie = _this$props.movie,
           _onClick = _this$props.onClick;
       return _react.default.createElement(_CardDeck.default, {
         className: "movie-card-deck"
-      }, _react.default.createElement(_Container.default, null, _react.default.createElement(_Card.default, _defineProperty({
+      }, _react.default.createElement(_Container.default, null, _react.default.createElement(_Card.default, (_React$createElement = {
         className: "movie-card",
         style: {
           width: '16rem',
           flex: 1
         }
-      }, "className", "movie-card mb-3"), _react.default.createElement(_Card.default.Img, {
+      }, _defineProperty(_React$createElement, "className", "movie-card mb-3"), _defineProperty(_React$createElement, "alt", "Movie Poster Image"), _React$createElement), _react.default.createElement(_Card.default.Img, {
         variant: "top",
         src: movie.ImagePath
       }), _react.default.createElement(_Card.default.Body, {
@@ -34734,6 +34736,7 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
         xs: 3
       }, _react.default.createElement("img", {
         className: "movie-poster",
+        alt: "Movie Poster Image",
         src: movie.ImagePath
       })), _react.default.createElement(_Col.default, {
         xs: 9
@@ -35215,7 +35218,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51086" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50813" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -24,7 +24,7 @@ export class MovieView extends React.Component {
 				<Container>
 					<Row>
 						<Col xs={3}>
-							<img className="movie-poster" src={movie.ImagePath} />
+							<img className="movie-poster" alt="Movie Poster Image" src={movie.ImagePath} />
 						</Col>
 						<Col xs={9}>
 							<div className="movie-title">
