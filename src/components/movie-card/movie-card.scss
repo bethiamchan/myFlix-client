@@ -1,0 +1,47 @@
+$blue: #3765c2;
+$gold: #7e6e1c;
+$bodyFont: 'Montserrat', sans-serif;
+
+.movie-card-deck {
+	margin-top: 20px;
+}
+
+.movie-card {
+	font-family: $bodyFont;
+	text-align: center;
+}
+
+.movie-card-title {
+	height: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.movie-text {
+	color: $blue;
+	font-weight: 500;
+	height: 175px;
+	overflow-y: auto;
+}
+
+.movie-card-title {
+	color: $gold;
+	font-weight: 700;
+}
+
+.movie-card-button {
+	background-color: $blue;
+	border: none;
+	color: white;
+	transition: 0.4s;
+}
+
+.movie-card-button:hover {
+	background-color: $gold;
+	color: white;
+}
+
+.movie-card-button:active {
+	box-shadow: 2px 2px 10px $blue;
+}
