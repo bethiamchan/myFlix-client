@@ -1,3 +1,18 @@
+.main-view {
+  font-family: "Montserrat", sans-serif;
+}
+
+.logout-button {
+  background-color: #7e6e1c;
+  border: none;
+  display: block;
+  margin: 10px 10px 10px auto;
+  transition: 0.4s;
+}
+
+.logout-button:hover {
+  background-color: #3765c2;
+}
 .login-form {
   font-family: "Montserrat", sans-serif;
   color: #3765c2;
@@ -21,9 +36,15 @@ h1 {
 
 .login-view-button:hover {
   background-color: #7e6e1c;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
 }
 .movie-card-deck {
   margin-top: 20px;
+  display: inline-block;
 }
 
 .movie-card {
@@ -93,7 +114,7 @@ h1 {
   background-color: #7e6e1c;
   border: none;
   display: block;
-  margin-left: auto;
+  margin: auto;
   transition: 0.4s;
 }
 

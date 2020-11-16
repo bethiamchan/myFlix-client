@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 import './registration-view.scss';
 import Form from 'react-bootstrap/Form';
@@ -11,12 +12,29 @@ export function RegistrationView(props) {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [email, setEmail] = useState('');
-	const [birthDate, setBirthDate] = useState('');
+	const [birthday, setBirthday] = useState('');
 
 	const handleRegister = (e) => {
 		e.preventDefault();
-		console.log(username, password, email, birthDate);
-		props.onLoggedIn(username);
+
+		axios
+			.post('https://bchanmyflix.herokuapp.com/users', {
+				Username: username,
+				Password: password,
+				Email: email,
+				Birthday: birthday,
+			})
+			.then((response) => {
+				const data = response.data;
+				console.log(data);
+				window.open('/', '_self');
+			})
+			.catch((e) => {
+				console.log(e);
+			});
+
+		// console.log(username, password, email, birthday);
+		// props.onLoggedIn(username);
 	};
 
 	return (
@@ -39,11 +57,11 @@ export function RegistrationView(props) {
 				</Form.Group>
 				<Form.Group controlId="formEmail">
 					<Form.Label className="form-label">Email</Form.Label>
-					<Form.Control className="form-input" type="text" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter Email Address" />
+					<Form.Control className="form-input" type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter Email Address" />
 				</Form.Group>
-				<Form.Group controlId="formBirthDate">
+				<Form.Group controlId="formBirthday">
 					<Form.Label className="form-label">Birthday</Form.Label>
-					<Form.Control className="form-input" type="text" value={birthDate} onChange={(e) => setBirthDate(e.target.value)} placeholder="Enter Birthday" />
+					<Form.Control className="form-input" type="date" value={birthday} onChange={(e) => setBirthday(e.target.value)} placeholder="Enter Birthday" />
 				</Form.Group>
 				<Form.Row>
 					<Col>
@@ -61,6 +79,6 @@ RegistrationView.propTypes = {
 		username: PropTypes.string.isRequired,
 		password: PropTypes.string.isRequired,
 		email: PropTypes.string.isRequired,
-		birthDate: PropTypes.string,
+		birthday: PropTypes.string,
 	}),
 };

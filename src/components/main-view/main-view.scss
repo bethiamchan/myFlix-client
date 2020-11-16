@@ -1,0 +1,19 @@
+$blue: #3765c2;
+$gold: #7e6e1c;
+$bodyFont: 'Montserrat', sans-serif;
+
+.main-view {
+	font-family: $bodyFont;
+}
+
+.logout-button {
+	background-color: $gold;
+	border: none;
+	display: block;
+   	margin: 10px 10px 10px auto;
+	transition: 0.4s;
+}
+
+.logout-button:hover {
+	background-color: $blue;
+}

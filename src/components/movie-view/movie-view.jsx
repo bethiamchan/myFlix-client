@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
+import './movie-view.scss';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-
-import './movie-view.scss';
 
 export class MovieView extends React.Component {
 	constructor() {
@@ -15,7 +16,7 @@ export class MovieView extends React.Component {
 	}
 
 	render() {
-		const { movie, onBack } = this.props;
+		const { movie } = this.props;
 
 		if (!movie) return null;
 
@@ -46,9 +47,11 @@ export class MovieView extends React.Component {
 						</Col>
 					</Row>
 					<Row className="back-to-main-view">
-						<Button onClick={onBack} className="back-to-main-button">
-							Back to Movies
-						</Button>
+						<Col xs={12}>
+							<Link to={`/`}>
+								<Button className="back-to-main-button">Back to Movies</Button>
+							</Link>
+						</Col>
 					</Row>
 				</Container>
 			</div>
