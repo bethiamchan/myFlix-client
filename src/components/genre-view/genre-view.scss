@@ -2,56 +2,38 @@ $blue: #3765c2;
 $gold: #7e6e1c;
 $bodyFont: 'Montserrat', sans-serif;
 
-.movie-poster-card {
-	width: 25%;
-	display: inline-flex;
-}
-
-.movie-details-card {
+.genre-details-card {
 	width: 75%;
 	display: inline-flex;
 }
 
-.movie-poster {
-	width: 100%;
-}
-
-.movie-view {
+.genre-view {
 	font-family: $bodyFont;
 }
 
-.movie-title {
+.genre-name {
 	font-weight: 700;
 	color: $gold;
 	font-size: 20px;
 }
 
-.movie-title,
-.movie-description {
+.genre-name, .genre-description {
 	padding: 20px 20px 0px 20px;
 }
 
-.card-content {
+.genre-description {
 	color: $blue;
 	font-size: 16px;
 	font-weight: 500;
 }
 
-.label {
-	font-weight: 700;
-}
-
-.navigation-buttons {
-	margin: auto;
-}
-
-.movie-view-button {
+.back-to-main-button {
 	background-color: $gold;
 	border: none;
 	margin: 10px;
 	transition: 0.4s;
 }
 
-.movie-view-button:hover {
+.back-to-main-button:hover {
 	background-color: $blue;
 }

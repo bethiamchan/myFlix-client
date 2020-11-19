@@ -86,6 +86,16 @@ a:hover {
 .movie-card-button:active {
   box-shadow: 2px 2px 10px #3765c2;
 }
+.movie-poster-card {
+  width: 25%;
+  display: inline-flex;
+}
+
+.movie-details-card {
+  width: 75%;
+  display: inline-flex;
+}
+
 .movie-poster {
   width: 100%;
 }
@@ -100,6 +110,11 @@ a:hover {
   font-size: 20px;
 }
 
+.movie-title,
+.movie-description {
+  padding: 20px 20px 0px 20px;
+}
+
 .card-content {
   color: #3765c2;
   font-size: 16px;
@@ -110,15 +125,18 @@ a:hover {
   font-weight: 700;
 }
 
-.back-to-main-button {
+.navigation-buttons {
+  margin: auto;
+}
+
+.movie-view-button {
   background-color: #7e6e1c;
   border: none;
-  display: block;
-  margin: auto;
+  margin: 10px;
   transition: 0.4s;
 }
 
-.back-to-main-button:hover {
+.movie-view-button:hover {
   background-color: #3765c2;
 }
 .registration-form {
@@ -144,6 +162,125 @@ h1 {
 
 .registration-button:hover {
   background-color: #7e6e1c;
+}
+.genre-details-card {
+  width: 75%;
+  display: inline-flex;
+}
+
+.genre-view {
+  font-family: "Montserrat", sans-serif;
+}
+
+.genre-name {
+  font-weight: 700;
+  color: #7e6e1c;
+  font-size: 20px;
+}
+
+.genre-name, .genre-description {
+  padding: 20px 20px 0px 20px;
+}
+
+.genre-description {
+  color: #3765c2;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.back-to-main-button {
+  background-color: #7e6e1c;
+  border: none;
+  margin: 10px;
+  transition: 0.4s;
+}
+
+.back-to-main-button:hover {
+  background-color: #3765c2;
+}
+.director-details-card {
+  width: 75%;
+  display: inline-flex;
+}
+
+.director-view {
+  font-family: "Montserrat", sans-serif;
+}
+
+.director-name {
+  font-weight: 700;
+  color: #7e6e1c;
+  font-size: 20px;
+}
+
+.director-name,
+.director-bio {
+  padding: 20px 20px 0px 20px;
+}
+
+.director-details {
+  color: #3765c2;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.label {
+  font-weight: 700;
+}
+
+.back-to-main-button {
+  background-color: #7e6e1c;
+  border: none;
+  margin: 10px;
+  transition: 0.4s;
+}
+
+.back-to-main-button:hover {
+  background-color: #3765c2;
+}
+.profile-view {
+  font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  font-weight: 700;
+  color: #7e6e1c;
+  font-size: 20px;
+}
+
+.profile-title {
+  padding: 20px 20px 0px 20px;
+}
+
+.card-content {
+  color: #3765c2;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.label,
+.form-label {
+  font-weight: 700;
+  color: #3765c2;
+}
+
+.profile-button {
+  margin: auto;
+}
+
+.button-container {
+  margin: auto;
+}
+
+.profile-button {
+  background-color: #7e6e1c;
+  border: none;
+  margin: 10px;
+  transition: 0.4s;
+}
+
+.profile-button:hover {
+  background-color: #3765c2;
 }
 .my-flix {
   color: #3765c2;

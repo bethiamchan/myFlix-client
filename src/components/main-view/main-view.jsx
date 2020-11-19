@@ -2,9 +2,10 @@ import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './main-view.scss';
-// import Container from 'react-bootstrap/Container';
+import Container from 'react-bootstrap/Container';
 // import Row from 'react-bootstrap/Row';
 // import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
@@ -13,6 +14,9 @@ import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { RegistrationView } from '../registration-view/registration-view';
+import { GenreView } from '../genre-view/genre-view';
+import { DirectorView } from '../director-view/director-view';
+import { ProfileView } from '../profile-view/profile-view';
 
 export class MainView extends React.Component {
 	constructor() {
@@ -86,6 +90,9 @@ export class MainView extends React.Component {
 					<Button className="logout-button" onClick={() => this.onLoggedOut()}>
 						Log Out
 					</Button>
+					<Link to={`/users/${user}`}>
+						<Button className="logout-button">My Profile</Button>
+					</Link>
 					<Route
 						exact
 						path="/"
@@ -96,6 +103,34 @@ export class MainView extends React.Component {
 					/>
 					<Route path="/register" render={() => <RegistrationView />} />
 					<Route path="/movies/:movieID" render={({ match }) => <MovieView movie={movies.find((m) => m._id === match.params.movieID)} />} />
+					<Route
+						exact
+						path="/genres/:name"
+						render={({ match }) => {
+							if (!movies) return <div className="main-view" />;
+							return <GenreView genre={movies.find((m) => m.Genre.Name === match.params.name).Genre} />;
+						}}
+					/>
+
+					<Route
+						exact
+						path="/directors/:name"
+						render={({ match }) => {
+							if (!movies) return <div className="main-view" />;
+							return <DirectorView director={movies.find((m) => m.Director.Name === match.params.name).Director} />;
+						}}
+					/>
+
+					<Route
+						exact
+						path="/users/:username"
+						render={() => {
+							if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
+							if (movies.length === 0) return;
+							<Container className="main-view" />;
+							return <ProfileView movies={movies} />;
+						}}
+					/>
 				</div>
 			</Router>
 		);

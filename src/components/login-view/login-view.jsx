@@ -12,56 +12,35 @@ import Container from 'react-bootstrap/Container';
 export function LoginView(props) {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
-	// const [usernameErr, setUsernameErr] = useState({});
-	// const [passwordErr, setPasswordErr] = useState({});
+	const [validated, setValidated] = useState('');
+	const [login, setLogin] = useState('');
 
 	const handleSubmit = (e) => {
+		const form = e.currentTarget;
+		if (form.checkValidity() === false) {
+			e.preventDefault();
+			e.stopPropagation();
+			setValidated(true);
+			setLogin(null);
+			return;
+		}
+
 		e.preventDefault();
-		// const isValid = formValidation();
-
-		// 	if (isValid) {
-		// 		// Send request to server for authentication
-		// 		axios
-		// 			.post('https://bchanmyflix.herokuapp.com/login', {
-		// 				Username: username,
-		// 				Password: password,
-		// 			})
-		// 			.then((response) => {
-		// 				const data = response.data;
-		// 				props.onLoggedIn(data);
-		// 			})
-		// 			.catch((e) => {
-		// 				console.log(e);
-		// 				// alert('User does not exist')
-		// 			});
-		// 	}
-		// };
-
-		// const form = e.currentTarget;
-		// if (form.checkValidity() === false) {
-		// 	e.preventDefault();
-		// 	e.stopPropagation();
-		// 	setValidated(true);
-		// 	setLogin(null);
-		// 	return;
-		// }
-
-		// e.preventDefault();
 
 		// Send request to server for authentication
 		axios
-			.post('https://bchanmyflix.herokuapp.com/login', {
+			.post(`https://bchanmyflix.herokuapp.com/login`, {
 				Username: username,
 				Password: password,
 			})
 			.then((response) => {
 				const data = response.data;
 
-				// if (!response.data.user) {
-				// 	setLogin(true);
-				// } else {
+				if (!response.data.user) {
+					setLogin(true);
+				} else {
 				props.onLoggedIn(data);
-				// }
+				}
 			})
 			.catch((e) => {
 				console.log(e);
@@ -69,39 +48,18 @@ export function LoginView(props) {
 			});
 	};
 
-	// const { onNewUser } = props;
+	const setLoginUsername = (e) => {
+		setUsername(e.target.value);
+		setLogin(null);
+	};
 
-	// const setLoginUsername = (e) => {
-	// 	setUsername(e.target.value);
-	// 	setLogin(null);
-	// };
-
-	// const setLoginPassword = (e) => {
-	// 	setPassword(e.target.value);
-	// 	setLogin(null);
-	// };
-
-	// const formValidation = () => {
-	// 	const usernameErr = {};
-	// 	const passwordErr = {};
-	// 	let isValid = true;
-
-	// 	if (username.trim().length < 1) {
-	// 		usernameErr.usernameMissing = 'Username is required';
-	// 		isValid = false;
-	// 	}
-	// 	if (username.trim().length < 6 && username.trim().length >= 1) {
-	// 		usernameErr.usernameShort = 'Username must be at least 6 characters';
-	// 		isValid = false;
-	// 	}
-
-	// 	setUsernameErr(usernameErr);
-	// 	return isValid;
-	// }
+	const setLoginPassword = (e) => {
+		setPassword(e.target.value);
+		setLogin(null);
+	};
 
 	return (
-		// <Form className="login-form" noValidate validated={validated} onSubmit={handleSubmit}>
-		<Form className="login-form">
+		<Form noValidate validated={validated} onSubmit={handleSubmit} className="login-form">
 			<Container>
 				<Col className="text-center">
 					<Form.Label>
@@ -110,14 +68,10 @@ export function LoginView(props) {
 				</Col>
 			</Container>
 			<Container>
-				<Form.Group controlId="formUsername">
+				<Form.Group controlId="formBasicUsername">
 					<Form.Label className="form-label">Username</Form.Label>
-					<Form.Control className="form-input" type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter Username" />
-					{/* <Form.Control required className="form-input" type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter Username" pattern="[a-zA-Z0-9]{6,}" />
-					{Object.keys(usernameErr).map((key) => {
-						return <div key={key}>{usernameErr[key]}</div>;
-					})} */}
-					{/* <Form.Control.Feedback type="invalid">Please enter a valid username with at least 6 alphanumeric characters.</Form.Control.Feedback> */}
+					<Form.Control className="form-input" type="text" value={username} onChange={(e) => setLoginUsername(e)} placeholder="Enter Username" required pattern="[a-zA-Z0-9]{6,}" />
+					<Form.Control.Feedback type="invalid">Please enter a valid username with at least 6 alphanumeric characters.</Form.Control.Feedback>
 				</Form.Group>
 				<Form.Group controlId="formPassword">
 					<Form.Label className="form-label">Password</Form.Label>
@@ -135,9 +89,6 @@ export function LoginView(props) {
 								Register As New User
 							</Button>
 						</Link>
-						{/* <Button className="login-view-button" block onClick={onNewUser}>
-							Register As New User
-						</Button> */}
 					</Col>
 				</Form.Row>
 			</Container>

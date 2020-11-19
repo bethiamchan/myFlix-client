@@ -7,6 +7,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 export class MovieView extends React.Component {
 	constructor() {
@@ -24,34 +26,41 @@ export class MovieView extends React.Component {
 			<div className="movie-view">
 				<Container>
 					<Row>
-						<Col xs={3}>
+						<Card className="movie-poster-card">
 							<img className="movie-poster" alt="Movie Poster Image" src={movie.ImagePath} />
-						</Col>
-						<Col xs={9}>
-							<div className="movie-title">
-								<span className="title">Title: </span>
-								<span className="value">{movie.Title}</span>
-							</div>
-							<div className="movie-description card-content">
-								<span className="label">Description: </span>
-								<span className="value">{movie.Description}</span>
-							</div>
-							<div className="movie-genre card-content">
-								<span className="label">Genre: </span>
-								<span className="value">{movie.Genre.Name}</span>
-							</div>
-							<div className="movie-director card-content">
-								<span className="label">Director: </span>
-								<span className="value">{movie.Director.Name}</span>
-							</div>
-						</Col>
-					</Row>
-					<Row className="back-to-main-view">
-						<Col xs={12}>
-							<Link to={`/`}>
-								<Button className="back-to-main-button">Back to Movies</Button>
-							</Link>
-						</Col>
+						</Card>
+
+						<Card className="movie-details-card">
+							<Card.Title className="movie-title">{movie.Title}</Card.Title>
+							<Card.Text className="movie-description card-content">{movie.Description}</Card.Text>
+							<br></br>
+							<ListGroup variant="flush" className="card-content">
+								<ListGroup.Item className="movie-genre">
+									<span className="label">Genre</span>
+									<br></br>
+									{movie.Genre.Name}
+									<br></br>
+								</ListGroup.Item>
+								<ListGroup.Item className="movie-director">
+									<span className="label">Director</span>
+									<br></br>
+									{movie.Director.Name}
+								</ListGroup.Item>
+								<ListGroup.Item className="navigation-buttons">
+									<Row>
+										<Link to={`/genres/${movie.Genre.Name}`}>
+											<Button className="movie-view-button">Genre</Button>
+										</Link>
+										<Link to={`/directors/${movie.Director.Name}`}>
+											<Button className="movie-view-button">Director</Button>
+										</Link>
+										<Link to={`/`}>
+											<Button className="movie-view-button">Back to Movies</Button>
+										</Link>
+									</Row>
+								</ListGroup.Item>
+							</ListGroup>
+						</Card>
 					</Row>
 				</Container>
 			</div>
