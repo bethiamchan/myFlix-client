@@ -1,5 +1,6 @@
 $blue: #3765c2;
 $gold: #7e6e1c;
+$red: #B73315;
 $bodyFont: 'Montserrat', sans-serif;
 
 .registration-form {
@@ -15,6 +16,11 @@ h1 {
 
 .form-label {
 	font-weight: 500;
+}
+
+.required {
+	color: $red;
+	font-size: 14px;
 }
 
 .registration-button {

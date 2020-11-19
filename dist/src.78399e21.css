@@ -154,6 +154,11 @@ h1 {
   font-weight: 500;
 }
 
+.required {
+  color: #B73315;
+  font-size: 14px;
+}
+
 .registration-button {
   background-color: #3765c2;
   border: none;

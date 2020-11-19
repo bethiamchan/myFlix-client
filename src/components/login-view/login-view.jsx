@@ -20,11 +20,10 @@ export function LoginView(props) {
 		if (form.checkValidity() === false) {
 			e.preventDefault();
 			e.stopPropagation();
-			setValidated(true);
 			setLogin(null);
+			setValidated(true);
 			return;
 		}
-
 		e.preventDefault();
 
 		// Send request to server for authentication
@@ -39,7 +38,7 @@ export function LoginView(props) {
 				if (!response.data.user) {
 					setLogin(true);
 				} else {
-				props.onLoggedIn(data);
+					props.onLoggedIn(data);
 				}
 			})
 			.catch((e) => {
@@ -68,18 +67,21 @@ export function LoginView(props) {
 				</Col>
 			</Container>
 			<Container>
-				<Form.Group controlId="formBasicUsername">
+				<Form.Group controlId="formUsername">
 					<Form.Label className="form-label">Username</Form.Label>
-					<Form.Control className="form-input" type="text" value={username} onChange={(e) => setLoginUsername(e)} placeholder="Enter Username" required pattern="[a-zA-Z0-9]{6,}" />
+					<Form.Control className="form-input" type="text" value={username} onChange={(e) => setLoginUsername(e)} placeholder="Enter Username" pattern="[a-zA-Z0-9]{6,}" required />
 					<Form.Control.Feedback type="invalid">Please enter a valid username with at least 6 alphanumeric characters.</Form.Control.Feedback>
 				</Form.Group>
 				<Form.Group controlId="formPassword">
 					<Form.Label className="form-label">Password</Form.Label>
-					<Form.Control className="form-input" type="text" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter Password" />
+					<Form.Control className="form-input" type="password" value={password} onChange={(e) => setLoginPassword(e)} placeholder="Enter Password" pattern=".{6,}" required />
+
+					<Form.Control.Feedback type="invalid">Please enter a valid password with at least 6 characters.</Form.Control.Feedback>
+					{!login ? null : <Form.Text className="invalid-text">Invalid username and/or password</Form.Text>}
 				</Form.Group>
 				<Form.Row>
 					<Col xs={6}>
-						<Button className="login-view-button" block type="submit" onClick={handleSubmit}>
+						<Button className="login-view-button" block type="submit">
 							Log In
 						</Button>
 					</Col>
@@ -95,6 +97,7 @@ export function LoginView(props) {
 		</Form>
 	);
 }
+
 LoginView.propTypes = {
 	user: PropTypes.shape({
 		username: PropTypes.string.isRequired,
