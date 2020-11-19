@@ -38981,7 +38981,7 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
       var token = localStorage.getItem('token');
       var username = localStorage.getItem('user');
 
-      _axios.default.post("https://bchanmyflix.herokuapp.com/users/".concat(username, "/Movies/").concat(movie._id), {
+      _axios.default.post("https://bchanmyflix.herokuapp.com/users/".concat(username, "/movies/").concat(movie._id), {
         headers: {
           Authorization: "Bearer ".concat(token)
         }
@@ -52398,7 +52398,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52320" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57622" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

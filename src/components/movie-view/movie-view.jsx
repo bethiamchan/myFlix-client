@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 import './movie-view.scss';
@@ -17,6 +18,23 @@ export class MovieView extends React.Component {
 		this.state = {};
 	}
 
+	handleAddFavorite(e, movie) {
+		e.preventDefault();
+		const token = localStorage.getItem('token');
+		const username = localStorage.getItem('user');
+		axios
+			.post(`https://bchanmyflix.herokuapp.com/users/${username}/movies/${movie._id}`, {
+				headers: { Authorization: `Bearer ${token}` },
+			})
+			.then(() => {
+				alert('Movie has been added to your favorites.');
+				// window.open('_self');
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+	}
+
 	render() {
 		const { movie } = this.props;
 
@@ -31,7 +49,12 @@ export class MovieView extends React.Component {
 						</Card>
 
 						<Card className="movie-details-card">
-							<Card.Title className="movie-title">{movie.Title}</Card.Title>
+							<Row>
+								<Card.Title className="movie-title">{movie.Title}</Card.Title>
+								<Button className="movie-view-button" value={movie._id} onClick={(e) => this.handleAddFavorite(e, movie)}>
+									Add to Favorites
+								</Button>
+							</Row>
 							<Card.Text className="movie-description card-content">{movie.Description}</Card.Text>
 							<br></br>
 							<ListGroup variant="flush" className="card-content">
