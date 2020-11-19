@@ -2,19 +2,20 @@ $blue: #3765c2;
 $gold: #7e6e1c;
 $bodyFont: 'Montserrat', sans-serif;
 
-.director-details-card {
-	width: 75%;
-	display: inline-flex;
-}
-
 .director-view {
 	font-family: $bodyFont;
+	margin-top: 10px;
+}
+
+.director-details-card {
+	margin: auto;
 }
 
 .director-name {
 	font-weight: 700;
 	color: $gold;
-	font-size: 20px;
+	font-size: 24px;
+	text-align: center;
 }
 
 .director-name,
@@ -30,15 +31,4 @@ $bodyFont: 'Montserrat', sans-serif;
 
 .label {
 	font-weight: 700;
-}
-
-.back-to-main-button {
-	background-color: $gold;
-	border: none;
-	margin: 10px;
-	transition: 0.4s;
-}
-
-.back-to-main-button:hover {
-	background-color: $blue;
 }

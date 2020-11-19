@@ -2,13 +2,19 @@ $blue: #3765c2;
 $gold: #7e6e1c;
 $bodyFont: 'Montserrat', sans-serif;
 
+.movie-view {
+	margin-top: 10px;
+}
+
 .movie-poster-card {
 	width: 25%;
 	display: inline-flex;
+	border: none;
+	margin-right: 10px;
 }
 
 .movie-details-card {
-	width: 75%;
+	width: 70%;
 	display: inline-flex;
 }
 
@@ -23,7 +29,8 @@ $bodyFont: 'Montserrat', sans-serif;
 .movie-title {
 	font-weight: 700;
 	color: $gold;
-	font-size: 20px;
+	font-size: 24px;
+	text-align: center;
 }
 
 .movie-title,
@@ -54,4 +61,16 @@ $bodyFont: 'Montserrat', sans-serif;
 
 .movie-view-button:hover {
 	background-color: $blue;
+}
+
+.favorites-button-container {
+	padding-left: 10px;
+}
+
+.favorites-button {
+	background-color: $blue;
+}
+
+.favorites-button:hover {
+	background-color: $gold;
 }

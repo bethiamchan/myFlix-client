@@ -6,14 +6,29 @@ $bodyFont: 'Montserrat', sans-serif;
 	font-family: $bodyFont;
 }
 
-.logout-button {
-	background-color: $gold;
+.navbar {
+	background-color: white;
+	color: red;
+}
+
+h1 {
+	font-weight: 700;
+	color: $gold;
+	font-size: 24px;
+}
+
+.main-nav-button-container {
+	margin-right: 5px;
+}
+
+.main-nav-button {
+	background-color: $blue;
 	border: none;
 	display: block;
-   	margin: 10px 10px 10px auto;
+	margin: 10px 10px 10px auto;
 	transition: 0.4s;
 }
 
-.logout-button:hover {
-	background-color: $blue;
+.main-nav-button:hover {
+	background-color: $gold;
 }

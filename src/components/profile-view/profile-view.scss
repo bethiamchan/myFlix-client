@@ -1,5 +1,6 @@
 $blue: #3765c2;
 $gold: #7e6e1c;
+$red: #b73315;
 $bodyFont: 'Montserrat', sans-serif;
 
 .profile-view {
@@ -9,11 +10,27 @@ $bodyFont: 'Montserrat', sans-serif;
 h1 {
 	font-weight: 700;
 	color: $gold;
-	font-size: 20px;
+	font-size: 24px;
+	text-align: center;
 }
 
 .profile-title {
 	padding: 20px 20px 0px 20px;
+}
+
+.movie-card-deck {
+	margin-right: 5px;
+	display: inline-block;
+}
+
+.movie-card-title {
+	height: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: $blue;
+	font-weight: 700;
 }
 
 .card-content {
@@ -32,10 +49,6 @@ h1 {
 	margin: auto;
 }
 
-.button-container {
-	margin: auto;
-}
-
 .profile-button {
 	background-color: $gold;
 	border: none;
@@ -45,4 +58,9 @@ h1 {
 
 .profile-button:hover {
 	background-color: $blue;
+}
+
+.delete-button {
+	background-color: $red;
+	font-weight: 700;
 }

@@ -2,22 +2,24 @@ $blue: #3765c2;
 $gold: #7e6e1c;
 $bodyFont: 'Montserrat', sans-serif;
 
-.genre-details-card {
-	width: 75%;
-	display: inline-flex;
-}
-
 .genre-view {
 	font-family: $bodyFont;
+	margin-top: 10px;
+}
+
+.genre-details-card {
+	margin: auto;
 }
 
 .genre-name {
 	font-weight: 700;
 	color: $gold;
-	font-size: 20px;
+	font-size: 24px;
+	text-align: center;
 }
 
-.genre-name, .genre-description {
+.genre-name,
+.genre-description {
 	padding: 20px 20px 0px 20px;
 }
 
@@ -25,15 +27,5 @@ $bodyFont: 'Montserrat', sans-serif;
 	color: $blue;
 	font-size: 16px;
 	font-weight: 500;
-}
-
-.back-to-main-button {
-	background-color: $gold;
-	border: none;
-	margin: 10px;
-	transition: 0.4s;
-}
-
-.back-to-main-button:hover {
-	background-color: $blue;
+	padding-bottom: 30px;
 }

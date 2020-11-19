@@ -9,6 +9,7 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
+import CardDeck from 'react-bootstrap/CardDeck';
 import { Tabs, Tab } from 'react-bootstrap';
 import ListGroup from 'react-bootstrap/ListGroup';
 
@@ -163,41 +164,30 @@ export class ProfileView extends React.Component {
 				<Tabs defaultActiveKey="profile" transition={false} className="profile-tabs">
 					<Tab className="tab-item" eventKey="profile" title="Profile">
 						<Card className="profile-card">
-							<h1 className="profile-title">{username}'s Profile</h1>
+							<h1 className="profile-title">{username}'s Favorite Movies</h1>
 							<Card.Body>
-								<Card.Text className="profile-item label">Favorite Movies:</Card.Text>
+								{/* <Card.Text className="profile-item label">Favorite Movies:</Card.Text> */}
 								{FavoriteMovies.length === 0 && <div className="card-content">You have no favorite movies.</div>}
 
 								<div className="favorites-container">
-									<ul className="favorites-list">
-										{FavoriteMovies.length > 0 &&
-											movies.map((movie) => {
-												if (movie._id === FavoriteMovies.find((favMovie) => favMovie === movie._id)) {
-													return (
-														<li className="favorites-item card-content" key={movie._id}>
-															{movie.Title}
-															<Button size="sm" className="profile-button remove-favorite" onClick={(e) => this.handleRemoveFavorite(e, movie._id)}>
-																Remove
-															</Button>
-														</li>
-													);
-												}
-											})}
-									</ul>
-								</div>
-								<div>
-									<ListGroup variant="flush" className="card-button">
-										<ListGroup.Item className="button-container">
-											<Row>
-												<Link to={`/`}>
-													<Button className="profile-button">Back to Movies</Button>
-												</Link>
-												<Button className="profile-button" onClick={(e) => this.handleDeregister(e)}>
-													Delete Profile
-												</Button>
-											</Row>
-										</ListGroup.Item>
-									</ListGroup>
+									{FavoriteMovies.length > 0 &&
+										movies.map((movie) => {
+											if (movie._id === FavoriteMovies.find((favMovie) => favMovie === movie._id)) {
+												return (
+													<CardDeck className="movie-card-deck">
+														<Card className="favorites-item card-content" style={{ width: '16rem', flex: 1 }} key={movie._id}>
+															<Card.Img variant="top" src={movie.ImagePath} />
+															<Card.Body className="movie-card-body">
+																<Card.Title className="movie-card-title">{movie.Title}</Card.Title>
+																<Button size="sm" block className="profile-button remove-favorite" onClick={(e) => this.handleRemoveFavorite(e, movie._id)}>
+																	Remove
+																</Button>
+															</Card.Body>
+														</Card>
+													</CardDeck>
+												);
+											}
+										})}
 								</div>
 							</Card.Body>
 						</Card>
@@ -219,7 +209,7 @@ export class ProfileView extends React.Component {
 									</Form.Group>
 									<Form.Group controlId="formBasicEmail">
 										<Form.Label className="form-label">Email</Form.Label>
-										<Form.Control type="email" placeholder="Change Email" defaultValue={Email} onChange={(e) => this.setEmail(e.target.value)} />
+										<Form.Control type="email" placeholder="Change Email" onChange={(e) => this.setEmail(e.target.value)} />
 										<Form.Control.Feedback type="invalid">Please enter a valid email address.</Form.Control.Feedback>
 									</Form.Group>
 									<Form.Group controlId="formBasicBirthday">
@@ -227,10 +217,21 @@ export class ProfileView extends React.Component {
 										<Form.Control type="date" placeholder="Change Birthday" defaultValue={Birthday} onChange={(e) => this.setBirthday(e.target.value)} />
 										<Form.Control.Feedback type="invalid">Please enter a valid birthday.</Form.Control.Feedback>
 									</Form.Group>
-									<Button className="update profile-button" type="submit" size="sm">
+									<Button className="update profile-button" type="submit" block>
 										Update
 									</Button>
 								</Form>
+							</Card.Body>
+						</Card>
+					</Tab>
+
+					<Tab className="tab-item" eventKey="delete" title="Delete Profile">
+						<Card className="update-card">
+							<h1 className="profile-title">Delete Your Profile</h1>
+							<Card.Body>
+								<Button className="profile-button delete-button" block onClick={(e) => this.handleDeregister(e)}>
+									Click Here If You're Sure You Want To Delete Your Profile
+								</Button>
 							</Card.Body>
 						</Card>
 					</Tab>

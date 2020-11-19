@@ -49,13 +49,13 @@ export class MovieView extends React.Component {
 						</Card>
 
 						<Card className="movie-details-card">
-							<Row>
-								<Card.Title className="movie-title">{movie.Title}</Card.Title>
-								<Button className="movie-view-button" value={movie._id} onClick={(e) => this.handleAddFavorite(e, movie)}>
+							<Card.Title className="movie-title">{movie.Title}</Card.Title>
+							<Card.Text className="movie-description card-content">{movie.Description}</Card.Text>
+							<div className="favorites-button-container">
+								<Button className="movie-view-button favorites-button" value={movie._id} onClick={(e) => this.handleAddFavorite(e, movie)}>
 									Add to Favorites
 								</Button>
-							</Row>
-							<Card.Text className="movie-description card-content">{movie.Description}</Card.Text>
+							</div>
 							<br></br>
 							<ListGroup variant="flush" className="card-content">
 								<ListGroup.Item className="movie-genre">
@@ -72,13 +72,14 @@ export class MovieView extends React.Component {
 								<ListGroup.Item className="navigation-buttons">
 									<Row>
 										<Link to={`/genres/${movie.Genre.Name}`}>
-											<Button className="movie-view-button">Genre</Button>
+											<Button className="movie-view-button" size="sm">
+												Learn More About This Genre
+											</Button>
 										</Link>
 										<Link to={`/directors/${movie.Director.Name}`}>
-											<Button className="movie-view-button">Director</Button>
-										</Link>
-										<Link to={`/`}>
-											<Button className="movie-view-button">Back to Movies</Button>
+											<Button className="movie-view-button" size="sm">
+												Learn More About This Director
+											</Button>
 										</Link>
 									</Row>
 								</ListGroup.Item>

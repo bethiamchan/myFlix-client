@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom';
 
 import './main-view.scss';
 import Container from 'react-bootstrap/Container';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
+import Navbar from 'react-bootstrap/Navbar';
 
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
@@ -87,12 +87,30 @@ export class MainView extends React.Component {
 		return (
 			<Router>
 				<div className="main-view">
-					<Button className="logout-button" onClick={() => this.onLoggedOut()}>
-						Log Out
-					</Button>
-					<Link to={`/users/${user}`}>
-						<Button className="logout-button">My Profile</Button>
-					</Link>
+					<Navbar expand="lg" className="navbar" sticky="top">
+						<Navbar.Brand as={Link} to="/" className="navbar-brand">
+							<h1 className="app-name">myFlix</h1>
+						</Navbar.Brand>
+						<Navbar.Toggle aria-controls="basic-navbar-nav" />
+						<Navbar.Collapse id="basic-navbar-nav">
+							<Container>
+								<Row className="main-nav-button-container justify-content-end">
+									<Link to={`/`}>
+										<Button className="main-nav-button">Back to Movies</Button>
+									</Link>
+									<Link to={`/users/${user}`}>
+										<Button className="main-nav-button">My Profile</Button>
+									</Link>
+									<Link>
+										<Button className="main-nav-button" onClick={() => this.onLoggedOut()}>
+											Log Out
+										</Button>
+									</Link>
+								</Row>
+							</Container>
+						</Navbar.Collapse>
+					</Navbar>
+
 					<Route
 						exact
 						path="/"
