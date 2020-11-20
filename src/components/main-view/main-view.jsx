@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom';
 
 import './main-view.scss';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Button from 'react-bootstrap/Button';
 import Navbar from 'react-bootstrap/Navbar';
 
 import { LoginView } from '../login-view/login-view';
@@ -61,7 +59,6 @@ export class MainView extends React.Component {
 	//When user logs in, this updates the user property in state to that user
 	onLoggedIn(authData) {
 		console.log(authData);
-		// this.props.setUser(authData.user.Username);
 		this.setState({
 			user: authData.user.Username,
 		});
@@ -71,7 +68,7 @@ export class MainView extends React.Component {
 		this.getMovies(authData.token);
 	}
 
-	onLoggedOut(user) {
+	onLoggedOut() {
 		localStorage.removeItem('token');
 		localStorage.removeItem('user');
 		this.setState({
@@ -103,21 +100,6 @@ export class MainView extends React.Component {
 							<Nav.Link onClick={() => this.onLoggedOut()} className="link-text">
 								Log Out
 							</Nav.Link>
-							{/* <Container>
-								<Row className="main-nav-button-container justify-content-end">
-									<Link to={`/`}>
-										<Button className="main-nav-button">Back to Movies</Button>
-									</Link>
-									<Link to={`/users/${user}`}>
-										<Button className="main-nav-button">My Profile</Button>
-									</Link>
-									<Link>
-										<Button className="main-nav-button" onClick={() => this.onLoggedOut()}>
-											Log Out
-										</Button>
-									</Link>
-								</Row>
-							</Container> */}
 						</Navbar.Collapse>
 					</Navbar>
 

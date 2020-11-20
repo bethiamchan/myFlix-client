@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 import './movie-view.scss';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
@@ -20,18 +19,18 @@ export class MovieView extends React.Component {
 
 	handleAddFavorite(e, movie) {
 		e.preventDefault();
-		const token = localStorage.getItem('token');
 		const username = localStorage.getItem('user');
-		axios
-			.post(`https://bchanmyflix.herokuapp.com/users/${username}/movies/${movie._id}`, {
-				headers: { Authorization: `Bearer ${token}` },
-			})
+		const token = localStorage.getItem('token');
+		axios({
+			method: 'post',
+			url: `https://bchanmyflix.herokuapp.com/users/${username}/Movies/${movie._id}`,
+			headers: { Authorization: `Bearer ${token}` },
+		})
 			.then(() => {
-				alert('Movie has been added to your favorites.');
-				// window.open('_self');
+				alert(`${movie.Title} was add to Favorites`);
 			})
-			.catch(function (error) {
-				console.log(error);
+			.catch(function (err) {
+				console.log(err);
 			});
 	}
 

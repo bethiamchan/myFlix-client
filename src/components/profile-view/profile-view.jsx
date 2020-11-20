@@ -1,17 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
 import './profile-view.scss';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import { Tabs, Tab } from 'react-bootstrap';
-import ListGroup from 'react-bootstrap/ListGroup';
 
 export class ProfileView extends React.Component {
 	constructor() {
@@ -72,7 +69,7 @@ export class ProfileView extends React.Component {
 			});
 	}
 
-	handleUpdate(e, newUsername, newEmail, newBirthday) {
+	handleUpdate(e, newUsername, newPassword, newEmail, newBirthday) {
 		this.setState({
 			validated: null,
 		});
@@ -89,18 +86,19 @@ export class ProfileView extends React.Component {
 		e.preventDefault();
 
 		const token = localStorage.getItem('token');
+		const username = localStorage.getItem('user');
 
-		axios
-
-			.put(`https://bchanmyflix.herokuapp.com/users/${username}`, {
-				headers: { Authorization: `Bearer ${token}` },
-				data: {
-					Username: newUsername ? newUsername : this.state.Username,
-					Password: this.Password,
-					Email: newEmail ? newEmail : this.state.Email,
-					Birthday: newBirthday ? newBirthday : this.state.Birthday,
-				},
-			})
+		axios({
+			method: 'put',
+			url: `https://bchanmyflix.herokuapp.com/users/${username}`,
+			headers: { Authorization: `Bearer ${token}` },
+			data: {
+				Username: newUsername ? newUsername : this.state.Username,
+				Password: newPassword ? newPassword : this.state.Password,
+				Email: newEmail ? newEmail : this.state.Email,
+				Birthday: newBirthday ? newBirthday : this.state.Birthday,
+			},
+		})
 			.then((response) => {
 				alert('Saved Changes');
 				this.setState({
@@ -110,7 +108,7 @@ export class ProfileView extends React.Component {
 					Birthday: response.data.Birthday,
 				});
 				localStorage.setItem('user', this.state.Username);
-				window.open('/client/users/${username}', '_self');
+				window.open('/users/${username}', '_self');
 			})
 			.catch(function (error) {
 				console.log(error);
@@ -155,7 +153,7 @@ export class ProfileView extends React.Component {
 	}
 
 	render() {
-		const { Email, Birthday, FavoriteMovies, validated } = this.state;
+		const { FavoriteMovies, validated } = this.state;
 		const username = localStorage.getItem('user');
 		const { movies } = this.props;
 
@@ -166,7 +164,6 @@ export class ProfileView extends React.Component {
 						<Card className="profile-card">
 							<h1 className="profile-title">{username}'s Favorite Movies</h1>
 							<Card.Body>
-								{/* <Card.Text className="profile-item label">Favorite Movies:</Card.Text> */}
 								{FavoriteMovies.length === 0 && <div className="card-content">You have no favorite movies.</div>}
 
 								<div className="favorites-container">
@@ -214,7 +211,7 @@ export class ProfileView extends React.Component {
 									</Form.Group>
 									<Form.Group controlId="formBasicBirthday">
 										<Form.Label className="form-label">Birthday</Form.Label>
-										<Form.Control type="date" placeholder="Change Birthday" defaultValue={Birthday} onChange={(e) => this.setBirthday(e.target.value)} />
+										<Form.Control type="date" placeholder="Change Birthday" onChange={(e) => this.setBirthday(e.target.value)} />
 										<Form.Control.Feedback type="invalid">Please enter a valid birthday.</Form.Control.Feedback>
 									</Form.Group>
 									<Button className="update profile-button" type="submit" block>
@@ -251,6 +248,6 @@ ProfileView.propTypes = {
 		),
 		Username: PropTypes.string.isRequired,
 		Email: PropTypes.string.isRequired,
-		Birthday: PropTypes.string.isRequired,
+		Birthday: PropTypes.string,
 	}),
 };

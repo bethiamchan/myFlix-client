@@ -27,11 +27,14 @@ export function LoginView(props) {
 		e.preventDefault();
 
 		// Send request to server for authentication
-		axios
-			.post(`https://bchanmyflix.herokuapp.com/login`, {
+		axios({
+			method: 'post',
+			url: `https://bchanmyflix.herokuapp.com/login`,
+			data: {
 				Username: username,
 				Password: password,
-			})
+			},
+		})
 			.then((response) => {
 				const data = response.data;
 
