@@ -29,9 +29,9 @@ export class DirectorView extends React.Component {
 							<ListGroup variant="flush" className="card-content">
 								<ListGroup.Item className="director-yob director-details">
 									<span className="label">Birth Year</span>
-									<br></br>
+									<br />
 									{director.Birth}
-									<br></br>
+									<br />
 								</ListGroup.Item>
 							</ListGroup>
 						</Card>
@@ -43,7 +43,7 @@ export class DirectorView extends React.Component {
 }
 
 DirectorView.propTypes = {
-	Director: PropTypes.shape({
+	director: PropTypes.shape({
 		Name: PropTypes.string.isRequired,
 		Bio: PropTypes.string.isRequired,
 		Birth: PropTypes.string.isRequired,

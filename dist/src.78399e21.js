@@ -39689,8 +39689,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -39725,18 +39723,17 @@ var MovieCard = /*#__PURE__*/function (_React$Component) {
   _createClass(MovieCard, [{
     key: "render",
     value: function render() {
-      var _React$createElement;
-
       var movie = this.props.movie;
       return _react.default.createElement(_CardDeck.default, {
         className: "movie-card-deck"
-      }, _react.default.createElement(_Container.default, null, _react.default.createElement(_Card.default, (_React$createElement = {
-        className: "movie-card",
+      }, _react.default.createElement(_Container.default, null, _react.default.createElement(_Card.default, {
         style: {
           width: '16rem',
           flex: 1
-        }
-      }, _defineProperty(_React$createElement, "className", "movie-card mb-3"), _defineProperty(_React$createElement, "alt", "Movie Poster Image"), _React$createElement), _react.default.createElement(_Card.default.Img, {
+        },
+        className: "movie-card mb-3",
+        alt: "Movie Poster Image"
+      }, _react.default.createElement(_Card.default.Img, {
         variant: "top",
         src: movie.ImagePath
       }), _react.default.createElement(_Card.default.Body, {
@@ -40537,7 +40534,7 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-function RegistrationView(props) {
+function RegistrationView() {
   var _useState = (0, _react.useState)(''),
       _useState2 = _slicedToArray(_useState, 2),
       username = _useState2[0],
@@ -40773,7 +40770,7 @@ var GenreView = /*#__PURE__*/function (_React$Component) {
 
 exports.GenreView = GenreView;
 GenreView.propTypes = {
-  Genre: _propTypes.default.shape({
+  genre: _propTypes.default.shape({
     Name: _propTypes.default.string.isRequired,
     Description: _propTypes.default.string.isRequired
   }).isRequired
@@ -40873,7 +40870,7 @@ var DirectorView = /*#__PURE__*/function (_React$Component) {
 
 exports.DirectorView = DirectorView;
 DirectorView.propTypes = {
-  Director: _propTypes.default.shape({
+  director: _propTypes.default.shape({
     Name: _propTypes.default.string.isRequired,
     Bio: _propTypes.default.string.isRequired,
     Birth: _propTypes.default.string.isRequired,
@@ -52393,7 +52390,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50622" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57205" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
