@@ -17,6 +17,7 @@ import { RegistrationView } from '../registration-view/registration-view';
 import { GenreView } from '../genre-view/genre-view';
 import { DirectorView } from '../director-view/director-view';
 import { ProfileView } from '../profile-view/profile-view';
+import { Nav } from 'react-bootstrap';
 
 export class MainView extends React.Component {
 	constructor() {
@@ -92,8 +93,17 @@ export class MainView extends React.Component {
 							<h1 className="app-name">myFlix</h1>
 						</Navbar.Brand>
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
-						<Navbar.Collapse id="basic-navbar-nav">
-							<Container>
+						<Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+							<Nav.Link as={Link} to="/" className="link-text">
+								Movies
+							</Nav.Link>
+							<Nav.Link as={Link} to="/users/${user}" className="link-text">
+								Profile
+							</Nav.Link>
+							<Nav.Link onClick={() => this.onLoggedOut()} className="link-text">
+								Log Out
+							</Nav.Link>
+							{/* <Container>
 								<Row className="main-nav-button-container justify-content-end">
 									<Link to={`/`}>
 										<Button className="main-nav-button">Back to Movies</Button>
@@ -107,7 +117,7 @@ export class MainView extends React.Component {
 										</Button>
 									</Link>
 								</Row>
-							</Container>
+							</Container> */}
 						</Navbar.Collapse>
 					</Navbar>
 

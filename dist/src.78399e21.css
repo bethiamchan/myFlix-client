@@ -4,7 +4,7 @@
 
 .navbar {
   background-color: white;
-  color: red;
+  display: flex;
 }
 
 h1 {
@@ -13,20 +13,17 @@ h1 {
   font-size: 24px;
 }
 
-.main-nav-button-container {
-  margin-right: 5px;
-}
-
-.main-nav-button {
+.link-text {
   background-color: #3765c2;
-  border: none;
-  display: block;
-  margin: 10px 10px 10px auto;
+  color: white;
+  border-radius: 0.25rem;
   transition: 0.4s;
+  margin: 5px;
 }
 
-.main-nav-button:hover {
+.link-text:hover {
   background-color: #7e6e1c;
+  color: white;
 }
 .login-form {
   font-family: "Montserrat", sans-serif;
