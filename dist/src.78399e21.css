@@ -295,6 +295,11 @@ h1 {
   color: #3765c2;
 }
 
+.required {
+  color: #b73315;
+  font-size: 14px;
+}
+
 .profile-button {
   margin: auto;
 }

@@ -51945,13 +51945,16 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
         controlId: "formBasicPassword"
       }, _react.default.createElement(_Form.default.Label, {
         className: "form-label"
-      }, "Password"), _react.default.createElement(_Form.default.Control, {
+      }, "Password", _react.default.createElement("span", {
+        className: "required"
+      }, "*")), _react.default.createElement(_Form.default.Control, {
         type: "password",
-        placeholder: "Change Password",
+        placeholder: "Current or New Password",
         onChange: function onChange(e) {
           return _this4.setPassword(e.target.value);
         },
-        pattern: ".{6,}"
+        pattern: ".{6,}",
+        required: true
       }), _react.default.createElement(_Form.default.Control.Feedback, {
         type: "invalid"
       }, "Please enter a valid password with at least 6 characters.")), _react.default.createElement(_Form.default.Group, {
@@ -52192,6 +52195,8 @@ var MainView = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this3.onLoggedOut();
         },
+        as: _reactRouterDom.Link,
+        to: pathMovies,
         className: "link-text"
       }, "Log Out"))), _react.default.createElement(_reactRouterDom.Route, {
         exact: true,

@@ -99,7 +99,7 @@ export class MainView extends React.Component {
 							<Nav.Link as={Link} to={pathProfile} className="link-text">
 								Profile
 							</Nav.Link>
-							<Nav.Link onClick={() => this.onLoggedOut()} className="link-text">
+							<Nav.Link onClick={() => this.onLoggedOut()} as={Link} to={pathMovies} className="link-text">
 								Log Out
 							</Nav.Link>
 						</Navbar.Collapse>

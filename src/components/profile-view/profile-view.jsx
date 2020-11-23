@@ -200,8 +200,10 @@ export class ProfileView extends React.Component {
 										<Form.Control.Feedback type="invalid">Please enter a valid username with at least 6 alphanumeric characters.</Form.Control.Feedback>
 									</Form.Group>
 									<Form.Group controlId="formBasicPassword">
-										<Form.Label className="form-label">Password</Form.Label>
-										<Form.Control type="password" placeholder="Change Password" onChange={(e) => this.setPassword(e.target.value)} pattern=".{6,}" />
+										<Form.Label className="form-label">
+											Password<span className="required">*</span>
+										</Form.Label>
+										<Form.Control type="password" placeholder="Current or New Password" onChange={(e) => this.setPassword(e.target.value)} pattern=".{6,}" required />
 										<Form.Control.Feedback type="invalid">Please enter a valid password with at least 6 characters.</Form.Control.Feedback>
 									</Form.Group>
 									<Form.Group controlId="formBasicEmail">
