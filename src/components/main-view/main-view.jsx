@@ -81,6 +81,8 @@ export class MainView extends React.Component {
 
 		//Before movies have been loaded
 		if (!movies) return <div className="main-view" />;
+		const pathMovies = `/`;
+		const pathProfile = `/users/${user}`;
 
 		return (
 			<Router>
@@ -91,10 +93,10 @@ export class MainView extends React.Component {
 						</Navbar.Brand>
 						<Navbar.Toggle aria-controls="basic-navbar-nav" />
 						<Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-							<Nav.Link as={Link} to="/" className="link-text">
+							<Nav.Link as={Link} to={pathMovies} className="link-text">
 								Movies
 							</Nav.Link>
-							<Nav.Link as={Link} to="/users/${user}" className="link-text">
+							<Nav.Link as={Link} to={pathProfile} className="link-text">
 								Profile
 							</Nav.Link>
 							<Nav.Link onClick={() => this.onLoggedOut()} className="link-text">

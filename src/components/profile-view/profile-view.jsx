@@ -25,14 +25,14 @@ export class ProfileView extends React.Component {
 	}
 
 	componentDidMount() {
-		let accessToken = localStorage.getItem('token');
+		const accessToken = localStorage.getItem('token');
 		if (accessToken !== null) {
 			this.getUser(accessToken);
 		}
 	}
 
 	getUser(token) {
-		let username = localStorage.getItem('user');
+		const username = localStorage.getItem('user');
 		axios
 			.get(`https://bchanmyflix.herokuapp.com/users/${username}`, {
 				headers: { Authorization: `Bearer ${token}` },
@@ -108,7 +108,7 @@ export class ProfileView extends React.Component {
 					Birthday: response.data.Birthday,
 				});
 				localStorage.setItem('user', this.state.Username);
-				window.open('/users/${username}', '_self');
+				window.open(`/users/${username}`, '_self');
 			})
 			.catch(function (error) {
 				console.log(error);
@@ -145,7 +145,7 @@ export class ProfileView extends React.Component {
 				localStorage.removeItem('user');
 				localStorage.removeItem('token');
 				alert('Your account has been deleted');
-				window.open('/', '_self');
+				window.open(`/`, '_self');
 			})
 			.catch((e) => {
 				console.log(e);

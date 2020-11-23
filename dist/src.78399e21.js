@@ -40580,7 +40580,7 @@ function RegistrationView() {
     }).then(function (response) {
       var data = response.data;
       console.log(data);
-      window.open('/', '_self');
+      window.open("/", '_self');
     }).catch(function (e) {
       console.log(e);
     });
@@ -51811,7 +51811,7 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
         });
 
         localStorage.setItem('user', _this3.state.Username);
-        window.open('/users/${username}', '_self');
+        window.open("/users/".concat(username), '_self');
       }).catch(function (error) {
         console.log(error);
       });
@@ -51851,7 +51851,7 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
         localStorage.removeItem('user');
         localStorage.removeItem('token');
         alert('Your account has been deleted');
-        window.open('/', '_self');
+        window.open("/", '_self');
       }).catch(function (e) {
         console.log(e);
       });
@@ -52161,6 +52161,8 @@ var MainView = /*#__PURE__*/function (_React$Component) {
       if (!movies) return _react.default.createElement("div", {
         className: "main-view"
       });
+      var pathMovies = "/";
+      var pathProfile = "/users/".concat(user);
       return _react.default.createElement(_reactRouterDom.BrowserRouter, null, _react.default.createElement("div", {
         className: "main-view"
       }, _react.default.createElement(_Navbar.default, {
@@ -52180,11 +52182,11 @@ var MainView = /*#__PURE__*/function (_React$Component) {
         className: "justify-content-end"
       }, _react.default.createElement(_reactBootstrap.Nav.Link, {
         as: _reactRouterDom.Link,
-        to: "/",
+        to: pathMovies,
         className: "link-text"
       }, "Movies"), _react.default.createElement(_reactBootstrap.Nav.Link, {
         as: _reactRouterDom.Link,
-        to: "/users/${user}",
+        to: pathProfile,
         className: "link-text"
       }, "Profile"), _react.default.createElement(_reactBootstrap.Nav.Link, {
         onClick: function onClick() {
@@ -52390,7 +52392,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57205" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60972" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
