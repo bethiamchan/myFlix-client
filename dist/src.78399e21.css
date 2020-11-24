@@ -1,3 +1,30 @@
+.main-view {
+  font-family: "Montserrat", sans-serif;
+}
+
+.navbar {
+  background-color: white;
+  display: flex;
+}
+
+h1 {
+  font-weight: 700;
+  color: #7e6e1c;
+  font-size: 24px;
+}
+
+.link-text {
+  background-color: #3765c2;
+  color: white;
+  border-radius: 0.25rem;
+  transition: 0.4s;
+  margin: 5px;
+}
+
+.link-text:hover {
+  background-color: #7e6e1c;
+  color: white;
+}
 .login-form {
   font-family: "Montserrat", sans-serif;
   color: #3765c2;
@@ -21,9 +48,15 @@ h1 {
 
 .login-view-button:hover {
   background-color: #7e6e1c;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
 }
 .movie-card-deck {
   margin-top: 20px;
+  display: inline-block;
 }
 
 .movie-card {
@@ -36,6 +69,8 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #7e6e1c;
+  font-weight: 700;
 }
 
 .movie-text {
@@ -43,11 +78,6 @@ h1 {
   font-weight: 500;
   height: 175px;
   overflow-y: auto;
-}
-
-.movie-card-title {
-  color: #7e6e1c;
-  font-weight: 700;
 }
 
 .movie-card-button {
@@ -65,6 +95,22 @@ h1 {
 .movie-card-button:active {
   box-shadow: 2px 2px 10px #3765c2;
 }
+.movie-view {
+  margin-top: 10px;
+}
+
+.movie-poster-card {
+  width: 25%;
+  display: inline-flex;
+  border: none;
+  margin-right: 10px;
+}
+
+.movie-details-card {
+  width: 70%;
+  display: inline-flex;
+}
+
 .movie-poster {
   width: 100%;
 }
@@ -76,7 +122,13 @@ h1 {
 .movie-title {
   font-weight: 700;
   color: #7e6e1c;
-  font-size: 20px;
+  font-size: 24px;
+  text-align: center;
+}
+
+.movie-title,
+.movie-description {
+  padding: 20px 20px 0px 20px;
 }
 
 .card-content {
@@ -89,16 +141,31 @@ h1 {
   font-weight: 700;
 }
 
-.back-to-main-button {
+.navigation-buttons {
+  margin: auto;
+}
+
+.movie-view-button {
   background-color: #7e6e1c;
   border: none;
-  display: block;
-  margin-left: auto;
+  margin: 10px;
   transition: 0.4s;
 }
 
-.back-to-main-button:hover {
+.movie-view-button:hover {
   background-color: #3765c2;
+}
+
+.favorites-button-container {
+  padding-left: 10px;
+}
+
+.favorites-button {
+  background-color: #3765c2;
+}
+
+.favorites-button:hover {
+  background-color: #7e6e1c;
 }
 .registration-form {
   font-family: "Montserrat", sans-serif;
@@ -115,6 +182,11 @@ h1 {
   font-weight: 500;
 }
 
+.required {
+  color: #b73315;
+  font-size: 14px;
+}
+
 .registration-button {
   background-color: #3765c2;
   border: none;
@@ -123,6 +195,129 @@ h1 {
 
 .registration-button:hover {
   background-color: #7e6e1c;
+}
+.genre-view {
+  font-family: "Montserrat", sans-serif;
+  margin-top: 10px;
+}
+
+.genre-details-card {
+  margin: auto;
+}
+
+.genre-name {
+  font-weight: 700;
+  color: #7e6e1c;
+  font-size: 24px;
+  text-align: center;
+}
+
+.genre-name,
+.genre-description {
+  padding: 20px 20px 0px 20px;
+}
+
+.genre-description {
+  color: #3765c2;
+  font-size: 16px;
+  font-weight: 500;
+  padding-bottom: 30px;
+}
+.director-view {
+  font-family: "Montserrat", sans-serif;
+  margin-top: 10px;
+}
+
+.director-details-card {
+  margin: auto;
+}
+
+.director-name {
+  font-weight: 700;
+  color: #7e6e1c;
+  font-size: 24px;
+  text-align: center;
+}
+
+.director-name,
+.director-bio {
+  padding: 20px 20px 0px 20px;
+}
+
+.director-details {
+  color: #3765c2;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.label {
+  font-weight: 700;
+}
+.profile-view {
+  font-family: "Montserrat", sans-serif;
+}
+
+h1 {
+  font-weight: 700;
+  color: #7e6e1c;
+  font-size: 24px;
+  text-align: center;
+}
+
+.profile-title {
+  padding: 20px 20px 0px 20px;
+}
+
+.movie-card-deck {
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.movie-card-title {
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #3765c2;
+  font-weight: 700;
+}
+
+.card-content {
+  color: #3765c2;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.label,
+.form-label {
+  font-weight: 700;
+  color: #3765c2;
+}
+
+.required {
+  color: #b73315;
+  font-size: 14px;
+}
+
+.profile-button {
+  margin: auto;
+}
+
+.profile-button {
+  background-color: #7e6e1c;
+  border: none;
+  margin: 10px;
+  transition: 0.4s;
+}
+
+.profile-button:hover {
+  background-color: #3765c2;
+}
+
+.delete-button {
+  background-color: #b73315;
+  font-weight: 700;
 }
 .my-flix {
   color: #3765c2;

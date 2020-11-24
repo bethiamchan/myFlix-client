@@ -1,0 +1,31 @@
+$blue: #3765c2;
+$gold: #7e6e1c;
+$bodyFont: 'Montserrat', sans-serif;
+
+.main-view {
+	font-family: $bodyFont;
+}
+
+.navbar {
+	background-color: white;
+	display: flex;
+}
+
+h1 {
+	font-weight: 700;
+	color: $gold;
+	font-size: 24px;
+}
+
+.link-text {
+	background-color: $blue;
+	color: white;
+	border-radius: 0.25rem;
+	transition: 0.4s;
+	margin: 5px;
+}
+
+.link-text:hover {
+	background-color: $gold;
+	color: white;
+}

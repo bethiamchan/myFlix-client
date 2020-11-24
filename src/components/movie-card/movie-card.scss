@@ -4,6 +4,7 @@ $bodyFont: 'Montserrat', sans-serif;
 
 .movie-card-deck {
 	margin-top: 20px;
+	display: inline-block;
 }
 
 .movie-card {
@@ -16,6 +17,8 @@ $bodyFont: 'Montserrat', sans-serif;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	color: $gold;
+	font-weight: 700;
 }
 
 .movie-text {
@@ -23,11 +26,6 @@ $bodyFont: 'Montserrat', sans-serif;
 	font-weight: 500;
 	height: 175px;
 	overflow-y: auto;
-}
-
-.movie-card-title {
-	color: $gold;
-	font-weight: 700;
 }
 
 .movie-card-button {

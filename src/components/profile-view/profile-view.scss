@@ -1,0 +1,71 @@
+$blue: #3765c2;
+$gold: #7e6e1c;
+$red: #b73315;
+$bodyFont: 'Montserrat', sans-serif;
+
+.profile-view {
+	font-family: $bodyFont;
+}
+
+h1 {
+	font-weight: 700;
+	color: $gold;
+	font-size: 24px;
+	text-align: center;
+}
+
+.profile-title {
+	padding: 20px 20px 0px 20px;
+}
+
+.movie-card-deck {
+	margin-right: 5px;
+	display: inline-block;
+}
+
+.movie-card-title {
+	height: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: $blue;
+	font-weight: 700;
+}
+
+.card-content {
+	color: $blue;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.label,
+.form-label {
+	font-weight: 700;
+	color: $blue;
+}
+
+.required {
+	color: $red;
+	font-size: 14px;
+}
+
+.profile-button {
+	margin: auto;
+}
+
+.profile-button {
+	background-color: $gold;
+	border: none;
+	margin: 10px;
+	transition: 0.4s;
+}
+
+.profile-button:hover {
+	background-color: $blue;
+}
+
+.delete-button {
+	background-color: $red;
+	font-weight: 700;
+}

@@ -1,0 +1,31 @@
+$blue: #3765c2;
+$gold: #7e6e1c;
+$bodyFont: 'Montserrat', sans-serif;
+
+.genre-view {
+	font-family: $bodyFont;
+	margin-top: 10px;
+}
+
+.genre-details-card {
+	margin: auto;
+}
+
+.genre-name {
+	font-weight: 700;
+	color: $gold;
+	font-size: 24px;
+	text-align: center;
+}
+
+.genre-name,
+.genre-description {
+	padding: 20px 20px 0px 20px;
+}
+
+.genre-description {
+	color: $blue;
+	font-size: 16px;
+	font-weight: 500;
+	padding-bottom: 30px;
+}
