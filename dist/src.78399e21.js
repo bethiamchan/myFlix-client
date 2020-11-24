@@ -51751,6 +51751,8 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleRemoveFavorite",
     value: function handleRemoveFavorite(e, movie) {
+      var _this3 = this;
+
       e.preventDefault();
       var username = localStorage.getItem('user');
       var token = localStorage.getItem('token');
@@ -51761,7 +51763,9 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
         }
       }).then(function () {
         alert('Movie removed from favorites');
-        window.open('_self');
+
+        _this3.componentDidMount(); // window.open('_self');
+
       }).catch(function (error) {
         console.log(error);
       });
@@ -51769,7 +51773,7 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleUpdate",
     value: function handleUpdate(e, newUsername, newPassword, newEmail, newBirthday) {
-      var _this3 = this;
+      var _this4 = this;
 
       this.setState({
         validated: null
@@ -51803,14 +51807,14 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
       }).then(function (response) {
         alert('Saved Changes');
 
-        _this3.setState({
+        _this4.setState({
           Username: response.data.Username,
           Password: response.data.Password,
           Email: response.data.Email,
           Birthday: response.data.Birthday
         });
 
-        localStorage.setItem('user', _this3.state.Username);
+        localStorage.setItem('user', _this4.state.Username);
         window.open("/users/".concat(username), '_self');
       }).catch(function (error) {
         console.log(error);
@@ -51859,7 +51863,7 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this4 = this;
+      var _this5 = this;
 
       var _this$state = this.state,
           FavoriteMovies = _this$state.FavoriteMovies,
@@ -51909,7 +51913,7 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
             block: true,
             className: "profile-button remove-favorite",
             onClick: function onClick(e) {
-              return _this4.handleRemoveFavorite(e, movie._id);
+              return _this5.handleRemoveFavorite(e, movie._id);
             }
           }, "Remove"))));
         }
@@ -51926,7 +51930,7 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
         validated: validated,
         className: "update-form",
         onSubmit: function onSubmit(e) {
-          return _this4.handleUpdate(e, _this4.Username, _this4.Password, _this4.Email, _this4.Birthday);
+          return _this5.handleUpdate(e, _this5.Username, _this5.Password, _this5.Email, _this5.Birthday);
         }
       }, _react.default.createElement(_Form.default.Group, {
         controlId: "formBasicUsername"
@@ -51936,7 +51940,7 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
         type: "text",
         placeholder: "Change Username",
         onChange: function onChange(e) {
-          return _this4.setUsername(e.target.value);
+          return _this5.setUsername(e.target.value);
         },
         pattern: "[a-zA-Z0-9]{6,}"
       }), _react.default.createElement(_Form.default.Control.Feedback, {
@@ -51951,7 +51955,7 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
         type: "password",
         placeholder: "Current or New Password",
         onChange: function onChange(e) {
-          return _this4.setPassword(e.target.value);
+          return _this5.setPassword(e.target.value);
         },
         pattern: ".{6,}",
         required: true
@@ -51965,7 +51969,7 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
         type: "email",
         placeholder: "Change Email",
         onChange: function onChange(e) {
-          return _this4.setEmail(e.target.value);
+          return _this5.setEmail(e.target.value);
         }
       }), _react.default.createElement(_Form.default.Control.Feedback, {
         type: "invalid"
@@ -51977,7 +51981,7 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
         type: "date",
         placeholder: "Change Birthday",
         onChange: function onChange(e) {
-          return _this4.setBirthday(e.target.value);
+          return _this5.setBirthday(e.target.value);
         }
       }), _react.default.createElement(_Form.default.Control.Feedback, {
         type: "invalid"
@@ -51997,7 +52001,7 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
         className: "profile-button delete-button",
         block: true,
         onClick: function onClick(e) {
-          return _this4.handleDeregister(e);
+          return _this5.handleDeregister(e);
         }
       }, "Click Here If You're Sure You Want To Delete Your Profile"))))));
     }
@@ -52267,11 +52271,6 @@ var MainView = /*#__PURE__*/function (_React$Component) {
             }
           });
           if (movies.length === 0) return;
-
-          _react.default.createElement(_Container.default, {
-            className: "main-view"
-          });
-
           return _react.default.createElement(_profileView.ProfileView, {
             movies: movies
           });
@@ -52397,7 +52396,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60972" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53273" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

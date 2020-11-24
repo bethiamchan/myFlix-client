@@ -139,7 +139,6 @@ export class MainView extends React.Component {
 						render={() => {
 							if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
 							if (movies.length === 0) return;
-							<Container className="main-view" />;
 							return <ProfileView movies={movies} />;
 						}}
 					/>

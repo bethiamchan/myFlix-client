@@ -62,7 +62,8 @@ export class ProfileView extends React.Component {
 			})
 			.then(() => {
 				alert('Movie removed from favorites');
-				window.open('_self');
+				this.componentDidMount();
+				// window.open('_self');
 			})
 			.catch(function (error) {
 				console.log(error);
