@@ -326,5 +326,13 @@ h1 {
 .movie-card-button:active {
   box-shadow: 2px 2px 10px #3765c2;
 }
+.filter {
+  margin: 0px 20px 0px 15px;
+}
+
+.form-control {
+  font-family: "Montserrat", sans-serif;
+  box-shadow: none !important;
+}
 
 /*# sourceMappingURL=/src.78399e21.css.map */

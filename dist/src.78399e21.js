@@ -54450,7 +54450,12 @@ MovieCard.propTypes = {
     Featured: _propTypes.default.bool
   }).isRequired
 };
-},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./movie-card.scss":"components/movie-card/movie-card.scss","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","react-bootstrap/Card":"../node_modules/react-bootstrap/esm/Card.js","react-bootstrap/CardDeck":"../node_modules/react-bootstrap/esm/CardDeck.js","react-bootstrap/Container":"../node_modules/react-bootstrap/esm/Container.js"}],"components/visibility-filter-input/visibility-filter-input.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./movie-card.scss":"components/movie-card/movie-card.scss","react-bootstrap/Button":"../node_modules/react-bootstrap/esm/Button.js","react-bootstrap/Card":"../node_modules/react-bootstrap/esm/Card.js","react-bootstrap/CardDeck":"../node_modules/react-bootstrap/esm/CardDeck.js","react-bootstrap/Container":"../node_modules/react-bootstrap/esm/Container.js"}],"components/visibility-filter-input/visibility-filter-input.scss":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/visibility-filter-input/visibility-filter-input.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -54464,6 +54469,8 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _reactRedux = require("react-redux");
 
+require("./visibility-filter-input.scss");
+
 var _actions = require("../../actions/actions");
 
 var _Form = _interopRequireDefault(require("react-bootstrap/Form"));
@@ -54471,14 +54478,16 @@ var _Form = _interopRequireDefault(require("react-bootstrap/Form"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function VisibilityFilterInput(props) {
-  return _react.default.createElement(_Form.default.Control, {
+  return _react.default.createElement("div", {
+    className: "filter"
+  }, _react.default.createElement(_Form.default.Control, {
     onChange: function onChange(e) {
       return props.setFilter(e.target.value);
     },
     value: props.visibilityFilter,
     placeholder: "Search Movies",
     size: "sm"
-  });
+  }));
 }
 
 var _default = (0, _reactRedux.connect)(null, {
@@ -54489,7 +54498,7 @@ exports.default = _default;
 VisibilityFilterInput.propTypes = {
   visibilityFilter: _propTypes.default.string
 };
-},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-redux":"../node_modules/react-redux/es/index.js","../../actions/actions":"actions/actions.js","react-bootstrap/Form":"../node_modules/react-bootstrap/esm/Form.js"}],"components/movies-list/movies-list.jsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","prop-types":"../node_modules/prop-types/index.js","react-redux":"../node_modules/react-redux/es/index.js","./visibility-filter-input.scss":"components/visibility-filter-input/visibility-filter-input.scss","../../actions/actions":"actions/actions.js","react-bootstrap/Form":"../node_modules/react-bootstrap/esm/Form.js"}],"components/movies-list/movies-list.jsx":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
