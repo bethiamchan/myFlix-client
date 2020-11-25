@@ -10,35 +10,25 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Nav } from 'react-bootstrap';
 
 import { LoginView } from '../login-view/login-view';
-import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
 import { RegistrationView } from '../registration-view/registration-view';
 import { GenreView } from '../genre-view/genre-view';
 import { DirectorView } from '../director-view/director-view';
 import { ProfileView } from '../profile-view/profile-view';
 
-import { setMovies } from '../../actions/actions';
+import { setMovies, setUser } from '../../actions/actions';
 import MoviesList from '../movies-list/movies-list';
 
 export class MainView extends React.Component {
 	constructor() {
-		//Call superclass constructor so React can initialize it
 		super();
-
-		//Initialize state to an empty object
-		this.state = {
-			movies: [],
-			user: null,
-		};
-		this.onLoggedIn = this.onLoggedIn.bind(this);
 	}
 
 	componentDidMount() {
 		let accessToken = localStorage.getItem('token');
+		let user = localStorage.getItem('user');
 		if (accessToken !== null) {
-			this.setState({
-				user: localStorage.getItem('user'),
-			});
+			this.props.setUser(user);
 			this.getMovies(accessToken);
 		}
 	}
@@ -60,9 +50,7 @@ export class MainView extends React.Component {
 	//When user logs in, this updates the user property in state to that user
 	onLoggedIn(authData) {
 		console.log(authData);
-		this.setState({
-			user: authData.user.Username,
-		});
+		this.props.setUser(authData.user.Username);
 
 		localStorage.setItem('token', authData.token);
 		localStorage.setItem('user', authData.user.Username);
@@ -72,14 +60,11 @@ export class MainView extends React.Component {
 	onLoggedOut() {
 		localStorage.removeItem('token');
 		localStorage.removeItem('user');
-		this.setState({
-			user: null,
-		});
+		this.props.setUser(!user);
 	}
 
 	render() {
-		let { movies } = this.props;
-		let { user } = this.state;
+		let { movies, user } = this.props;
 
 		//Before movies have been loaded
 		if (!movies) return <div className="main-view" />;
@@ -154,7 +139,7 @@ let mapStateToProps = (state) => {
 	return { movies: state.movies, user: state.user };
 };
 
-export default connect(mapStateToProps, { setMovies })(MainView);
+export default connect(mapStateToProps, { setMovies, setUser })(MainView);
 
 MainView.propTypes = {
 	movie: PropTypes.arrayOf({
