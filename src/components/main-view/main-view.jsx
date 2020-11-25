@@ -3,10 +3,11 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import './main-view.scss';
-import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
+import { Nav } from 'react-bootstrap';
 
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
@@ -15,7 +16,9 @@ import { RegistrationView } from '../registration-view/registration-view';
 import { GenreView } from '../genre-view/genre-view';
 import { DirectorView } from '../director-view/director-view';
 import { ProfileView } from '../profile-view/profile-view';
-import { Nav } from 'react-bootstrap';
+
+import { setMovies } from '../../actions/actions';
+import MoviesList from '../movies-list/movies-list';
 
 export class MainView extends React.Component {
 	constructor() {
@@ -47,9 +50,7 @@ export class MainView extends React.Component {
 				headers: { Authorization: `Bearer ${token}` },
 			})
 			.then((response) => {
-				this.setState({
-					movies: response.data,
-				});
+				this.props.setMovies(response.data);
 			})
 			.catch(function (error) {
 				console.log(error);
@@ -77,7 +78,8 @@ export class MainView extends React.Component {
 	}
 
 	render() {
-		const { movies, user } = this.state;
+		let { movies } = this.props;
+		let { user } = this.state;
 
 		//Before movies have been loaded
 		if (!movies) return <div className="main-view" />;
@@ -110,7 +112,7 @@ export class MainView extends React.Component {
 						path="/"
 						render={() => {
 							if (!user) return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
-							return movies.map((m) => <MovieCard key={m._id} movie={m} />);
+							return <MoviesList movies={movies} />;
 						}}
 					/>
 					<Route path="/register" render={() => <RegistrationView />} />
@@ -147,6 +149,12 @@ export class MainView extends React.Component {
 		);
 	}
 }
+
+let mapStateToProps = (state) => {
+	return { movies: state.movies, user: state.user };
+};
+
+export default connect(mapStateToProps, { setMovies })(MainView);
 
 MainView.propTypes = {
 	movie: PropTypes.arrayOf({

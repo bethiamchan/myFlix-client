@@ -1,3 +1,10 @@
+.my-flix {
+  color: #3765c2;
+}
+
+.back-button {
+  cursor: pointer;
+}
 .main-view {
   font-family: "Montserrat", sans-serif;
 }
@@ -318,13 +325,6 @@ h1 {
 .delete-button {
   background-color: #b73315;
   font-weight: 700;
-}
-.my-flix {
-  color: #3765c2;
-}
-
-.back-button {
-  cursor: pointer;
 }
 
 /*# sourceMappingURL=/src.78399e21.css.map */
