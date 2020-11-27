@@ -53414,12 +53414,12 @@ var MovieView = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(MovieView);
 
-  function MovieView() {
+  function MovieView(props) {
     var _this;
 
     _classCallCheck(this, MovieView);
 
-    _this = _super.call(this);
+    _this = _super.call(this, props);
     _this.state = {};
     return _this;
   }
@@ -53772,12 +53772,12 @@ var GenreView = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(GenreView);
 
-  function GenreView() {
+  function GenreView(props) {
     var _this;
 
     _classCallCheck(this, GenreView);
 
-    _this = _super.call(this);
+    _this = _super.call(this, props);
     _this.state = {};
     return _this;
   }
@@ -53865,12 +53865,12 @@ var DirectorView = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(DirectorView);
 
-  function DirectorView() {
+  function DirectorView(props) {
     var _this;
 
     _classCallCheck(this, DirectorView);
 
-    _this = _super.call(this);
+    _this = _super.call(this, props);
     _this.state = {};
     return _this;
   }
@@ -53973,12 +53973,12 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(ProfileView);
 
-  function ProfileView() {
+  function ProfileView(props) {
     var _this;
 
     _classCallCheck(this, ProfileView);
 
-    _this = _super.call(this);
+    _this = _super.call(this, props);
     _this.Username = null, _this.Password = null, _this.Email = null, _this.Birthday = null;
     _this.state = {
       Username: null,
@@ -54178,11 +54178,13 @@ var ProfileView = /*#__PURE__*/function (_React$Component) {
             key: movie._id
           }, _react.default.createElement(_Card.default.Img, {
             variant: "top",
-            src: movie.ImagePath
+            src: movie.ImagePath,
+            key: movie.ImagePath
           }), _react.default.createElement(_Card.default.Body, {
             className: "movie-card-body"
           }, _react.default.createElement(_Card.default.Title, {
-            className: "movie-card-title"
+            className: "movie-card-title",
+            key: movie.Title
           }, movie.Title), _react.default.createElement(_Button.default, {
             size: "sm",
             block: true,
@@ -54630,10 +54632,14 @@ var MainView = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(MainView);
 
-  function MainView() {
+  function MainView(props) {
+    var _this;
+
     _classCallCheck(this, MainView);
 
-    return _super.call(this);
+    _this = _super.call(this, props);
+    _this.onLoggedIn = _this.onLoggedIn.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(MainView, [{
@@ -54651,14 +54657,14 @@ var MainView = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "getMovies",
     value: function getMovies(token) {
-      var _this = this;
+      var _this2 = this;
 
       _axios.default.get('https://bchanmyflix.herokuapp.com/movies', {
         headers: {
           Authorization: "Bearer ".concat(token)
         }
       }).then(function (response) {
-        _this.props.setMovies(response.data);
+        _this2.props.setMovies(response.data);
       }).catch(function (error) {
         console.log(error);
       });
@@ -54675,15 +54681,16 @@ var MainView = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "onLoggedOut",
-    value: function onLoggedOut() {
+    value: function onLoggedOut(user) {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
+      window.open('/', '_self');
       this.props.setUser(!user);
     }
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this3 = this;
 
       var _this$props = this.props,
           movies = _this$props.movies,
@@ -54721,10 +54728,8 @@ var MainView = /*#__PURE__*/function (_React$Component) {
         className: "link-text"
       }, "Profile"), _react.default.createElement(_reactBootstrap.Nav.Link, {
         onClick: function onClick() {
-          return _this2.onLoggedOut();
+          return _this3.onLoggedOut();
         },
-        as: _reactRouterDom.Link,
-        to: pathMovies,
         className: "link-text"
       }, "Log Out"))), _react.default.createElement(_reactRouterDom.Route, {
         exact: true,
@@ -54732,7 +54737,7 @@ var MainView = /*#__PURE__*/function (_React$Component) {
         render: function render() {
           if (!user) return _react.default.createElement(_loginView.LoginView, {
             onLoggedIn: function onLoggedIn(user) {
-              return _this2.onLoggedIn(user);
+              return _this3.onLoggedIn(user);
             }
           });
           return _react.default.createElement(_moviesList.default, {
@@ -54788,7 +54793,7 @@ var MainView = /*#__PURE__*/function (_React$Component) {
         render: function render() {
           if (!user) return _react.default.createElement(_loginView.LoginView, {
             onLoggedIn: function onLoggedIn(user) {
-              return _this2.onLoggedIn(user);
+              return _this3.onLoggedIn(user);
             }
           });
           if (movies.length === 0) return;
@@ -54809,6 +54814,13 @@ var mapStateToProps = function mapStateToProps(state) {
   return {
     movies: state.movies,
     user: state.user
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    movies: dispatch.movies,
+    user: dispatch.user
   };
 };
 
@@ -54995,7 +55007,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53164" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64820" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

@@ -20,8 +20,10 @@ import { setMovies, setUser } from '../../actions/actions';
 import MoviesList from '../movies-list/movies-list';
 
 export class MainView extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
+
+		this.onLoggedIn = this.onLoggedIn.bind(this);
 	}
 
 	componentDidMount() {
@@ -57,9 +59,10 @@ export class MainView extends React.Component {
 		this.getMovies(authData.token);
 	}
 
-	onLoggedOut() {
+	onLoggedOut(user) {
 		localStorage.removeItem('token');
 		localStorage.removeItem('user');
+		window.open('/', '_self');
 		this.props.setUser(!user);
 	}
 
@@ -86,7 +89,7 @@ export class MainView extends React.Component {
 							<Nav.Link as={Link} to={pathProfile} className="link-text">
 								Profile
 							</Nav.Link>
-							<Nav.Link onClick={() => this.onLoggedOut()} as={Link} to={pathMovies} className="link-text">
+							<Nav.Link onClick={() => this.onLoggedOut()} className="link-text">
 								Log Out
 							</Nav.Link>
 						</Navbar.Collapse>
@@ -137,6 +140,10 @@ export class MainView extends React.Component {
 
 let mapStateToProps = (state) => {
 	return { movies: state.movies, user: state.user };
+};
+
+let mapDispatchToProps = (dispatch) => {
+	return { movies: dispatch.movies, user: dispatch.user };
 };
 
 export default connect(mapStateToProps, { setMovies, setUser })(MainView);
