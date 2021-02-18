@@ -11,8 +11,8 @@ import CardDeck from 'react-bootstrap/CardDeck';
 import { Tabs, Tab } from 'react-bootstrap';
 
 export class ProfileView extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		(this.Username = null), (this.Password = null), (this.Email = null), (this.Birthday = null);
 		this.state = {
 			Username: null,
@@ -174,9 +174,11 @@ export class ProfileView extends React.Component {
 												return (
 													<CardDeck className="movie-card-deck">
 														<Card className="favorites-item card-content" style={{ width: '16rem', flex: 1 }} key={movie._id}>
-															<Card.Img variant="top" src={movie.ImagePath} />
+															<Card.Img variant="top" src={movie.ImagePath} key={movie.ImagePath} />
 															<Card.Body className="movie-card-body">
-																<Card.Title className="movie-card-title">{movie.Title}</Card.Title>
+																<Card.Title className="movie-card-title" key={movie.Title}>
+																	{movie.Title}
+																</Card.Title>
 																<Button size="sm" block className="profile-button remove-favorite" onClick={(e) => this.handleRemoveFavorite(e, movie._id)}>
 																	Remove
 																</Button>

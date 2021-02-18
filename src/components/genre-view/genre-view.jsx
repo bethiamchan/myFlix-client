@@ -6,8 +6,8 @@ import Container from 'react-bootstrap/Container';
 import Card from 'react-bootstrap/Card';
 
 export class GenreView extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {};
 	}
