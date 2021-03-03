@@ -11,8 +11,8 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 export class MovieView extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {};
 	}
@@ -55,17 +55,17 @@ export class MovieView extends React.Component {
 									Add to Favorites
 								</Button>
 							</div>
-							<br></br>
+							<br />
 							<ListGroup variant="flush" className="card-content">
 								<ListGroup.Item className="movie-genre">
 									<span className="label">Genre</span>
-									<br></br>
+									<br />
 									{movie.Genre.Name}
-									<br></br>
+									<br />
 								</ListGroup.Item>
 								<ListGroup.Item className="movie-director">
 									<span className="label">Director</span>
-									<br></br>
+									<br />
 									{movie.Director.Name}
 								</ListGroup.Item>
 								<ListGroup.Item className="navigation-buttons">
