@@ -18,5 +18,8 @@
 		"babel-preset-react": "^6.24.1",
 		"core-js": "^3.6.5",
 		"sass": "^1.28.0"
+	},
+	"scripts": {
+		"build": "parcel src/index.html"
 	}
 }
